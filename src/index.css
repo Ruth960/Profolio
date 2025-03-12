@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+    padding: 2px;
+}
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+.nav-links a:hover {
+    color: #f1f1f1;
+} 
+
+.home {
+    padding: 20px;
+    text-align: center;
+}
+
+.home h1 {
+    font-size: 2rem;
+    color: #333;
+}
+
+.home .image {
+    margin-top: 20px;
+}
+h1 {
+    font-size: 2rem;
+    color: #333;
+    font-weight: bold;
+}
+btn {
+    padding: 10px 20px;
+    background-color: #1a0404;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
