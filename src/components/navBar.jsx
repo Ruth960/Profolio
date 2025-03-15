@@ -1,29 +1,36 @@
-import React from "react";
+import React from 'react';
+import { Link as ScrollLink } from 'react-scroll';
 
-export default function Navbar(props) { 
-  const {title, links, pageheader} = props;
-
+export default function Navbar({ links }) {
   return (
     <nav style={{
-        width: '100%',
-        backgroundColor: '#b5b1ff',
+        width: '89.6%',
+        marginRight:'75px',
+        backgroundColor: '#333',
         color: 'white',
         padding: '20px',
         display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center'
+        justifyContent: 'center',
+        fontSize: '20px',
+        alignItems: 'center',
+        
+        position: 'fixed', // Make the navbar fixed
+        top: 0, // Position it at the top
+        zIndex: 1000 // Ensure it stays above other elements
     }}>
-        <div>
-            <h1>{title}</h1>
-        </div>
-        <h1>{pageheader}</h1>
-        <div style={{ display: 'flex', gap: '10px' }}>
-            {links && links.slice(0, 4).map((link, index) => (
-              <button key={link.id || index} style={{ backgroundColor: '#130614', color: 'white', borderRadius: '5px', padding: '10px 20px' }}>
-                {link.text}
-              </button>
-            ))}
-        </div>      
+      <div style={{ display: 'flex', gap: '10px' }}>
+        {links && links.map((link, index) => (
+          <ScrollLink 
+            key={index}
+            to={link.path} 
+            smooth={true} 
+            duration={500} 
+            style={{ color: 'white', borderRadius: '5px', padding: '10px 20px', textDecoration: 'none', cursor: 'pointer' }}
+          >
+            {link.text}
+          </ScrollLink>
+        ))}
+      </div>
     </nav>
   );
 }
