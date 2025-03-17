@@ -3,8 +3,9 @@ function Skills() {
     const skillCategories = [
       {
         skills: [
-          { name: "C", level: 60 },
+          
           { name: "HTML", level: 85 },
+          { name: "C", level: 60 },
           { name: "CSS", level: 80 },
           { name: "JavaScript", level: 70 },
           { name: "Python", level: 75 },
@@ -56,18 +57,7 @@ function Skills() {
                 </div>
               ))}
             </div>
-  
-            {/* Additional Skills */}
-            <div className="mt-12">
-              <h3 className="text-xl font-semibold mb-6 text-center">Currently Learning</h3>
-              <div className="flex flex-wrap justify-center gap-3">
-                {["TypeScript", "Node.js", "Express", "MongoDB", "Redux"].map((skill) => (
-                  <span key={skill} className="px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded-full text-sm font-medium">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
+
           </div>
         </div>
       </section>
