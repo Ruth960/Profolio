@@ -1,6 +1,3 @@
-
-
-
 export default function Project() {
     const buttonStyle = {
         alignItems: 'center',
@@ -39,7 +36,7 @@ export default function Project() {
             <div style={{ backgroundColor: '#fff', border: '1px solid #ccc', borderRadius: '8px', padding: '16px', width: '30%', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
                 <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '8px' }}>Farm Connect</h2>
                 <p>
-                FarmConnect is a digital platform that connects small-scale farmers with buyers, ensuring fair prices and reducing middlemen. It features SMS verification, a farmer dashboard, and plans for a mobile app to enhance market access and agricultural sustainability.
+                FarmConnect is a digital platform that connects small-scale farmers with buyers, ensuring fair prices and reducing middlemen. It features SMS verification, a farmer dashboard, and plans for a mobile app to enhance market access and agricultural sustainability.
                 </p>
                 <a href="https://farm-connect-sigma.vercel.app/" target="_blank" rel="noopener noreferrer" style={buttonStyle}>View Project</a>
             </div>
