@@ -1,9 +1,9 @@
 
 export default function About() {
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', backgroundColor: '#333', padding: '20px', marginRight: '1px' }}>
-            <div style={{ flex: 1, marginRight: '20px', backgroundColor: '#fff', color:'black', padding: '20px', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}>
-            <h1>About Me</h1>
+        <div style={{ display: 'flex', justifyContent: 'center', backgroundColor: '', padding: '20px', marginRight: '1px' }}>
+            <div style={{ flex: 1, marginRight: '20px', backgroundColor: 'transparent', color:'white', padding: '20px', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}>
+            <h1 style={{color:'white'}}>About Me</h1>
             <div style={{ textAlign: 'justify' }}>
                 <p>
                 I am a tech-driven problem solver passionate about emerging technologies and data-driven solutions. With a background in Computer Science and Engineering specializing in IoT, I have worked on projects that integrate AI, data analytics, and automation to tackle real-world challenges. My experience includes developing smart systems for agriculture, home automation, and intelligent assistants, as well as exploring cybersecurity and blockchain applications.
@@ -16,8 +16,8 @@ export default function About() {
                 </p>
             </div>
             </div>
-            <div style={{ flex: 1, backgroundColor: '#fff', color:'black', padding: '20px', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}>
-            <h1>Experience</h1>
+            <div style={{ flex: 1, backgroundColor: 'transparent', color:'#fff', padding: '20px', borderRadius: '10px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)' }}>
+            <h1 style={{color:'white'}}>Experience</h1>
             <div style={{ marginBottom: '15px' }}>
                 <h2>Embedded system internship</h2>
                 <p><i>Emertxe</i> 1 month</p>

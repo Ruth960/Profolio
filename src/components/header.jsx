@@ -1,185 +1,226 @@
+import React, { useEffect, useRef } from 'react';
+
 function Header() {
-    return (
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    const phrases = [
+      'Frontend Developer',
+      'IoT Developer',
+      'React and Ract Native Specialist',
+      'Tech Enthusiast',
+    ];
+    let currentPhraseIndex = 0;
+    let currentCharIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 100;
+
+    const type = () => {
+      const currentPhrase = phrases[currentPhraseIndex];
+      if (isDeleting) {
+        if (textRef.current) {
+          textRef.current.textContent = currentPhrase.substring(
+            0,
+            currentCharIndex - 1
+          );
+        }
+        currentCharIndex--;
+        typingSpeed = 50;
+      } else {
+        if (textRef.current) {
+          textRef.current.textContent = currentPhrase.substring(
+            0,
+            currentCharIndex + 1
+          );
+        }
+        currentCharIndex++;
+        typingSpeed = 100;
+      }
+
+      if (!isDeleting && currentCharIndex === currentPhrase.length) {
+        isDeleting = true;
+        typingSpeed = 1500; // Pause at the end of typing
+      } else if (isDeleting && currentCharIndex === 0) {
+        isDeleting = false;
+        currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+        typingSpeed = 500; // Pause before typing the next phrase
+      }
+
+      setTimeout(type, typingSpeed);
+    };
+
+    type();
+  }, []);
+
+  return (
+    <section
+      id="hero"
+      style={{
+        
+        position: 'relative',
+        height: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: '1.5rem',
+        overflow: 'hidden',
+      }}
+    >
       <div
         style={{
-          minHeight: "100vh",
-          backgroundColor: "#333",
-          padding: "2rem",
-          fontFamily: "sans-serif",
+          textAlign: 'center',
+          zIndex: 10,
+          maxWidth: '72rem',
         }}
       >
-        {/* Navigation */}
-        <nav
+        <h1
           style={{
-            display: "flex",
-            justifyContent: "flex-end",
-            gap: "2rem",
-            marginBottom: "3rem",
-            color: "#333",
+            fontSize: '2.5rem',
+            fontWeight: 'bold',
+            marginBottom: '1rem',
+            animation: 'fadeIn 1s ease-in-out',
           }}
         >
-        </nav>
-  
-        {/* Main Content Card */}
-        <div
-          style={{
-            position: "relative",
-            backgroundColor: "white",
-            borderRadius: "1.5rem",
-            padding: "2rem",
-            overflow: "hidden",
-            display: "flex",
-          }}
-        >
-        
-                <div className="flex-1">
-                <p
-                  style={{
-                  fontSize: "0.875rem",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.05em",
-                  marginBottom: "1rem",
-                  color: "#666",
-                  }}
-                >
-                 Ruth's Profolio
-                <h2
-                  style={{
-                  fontSize: "2.5rem",
-                  fontFamily: "serif",
-                  marginBottom: "1.5rem",
-                  color: "#333",
-                  }}
-                >
-                  Hello, my name is <span className="block">Ruth Wanjiru Mwaniki</span>
-                </h2>
-                <p
-                  style={{
-                  color: "#666",
-                  marginBottom: "2rem",
-                  maxWidth: "28rem",
-                  }}
-                >
-                  
-                </p>
-                <p
-                  style={{
-                  color: "#333",
-                  alignContent:'left',
-                  fontSize:'0.9rem', 
-                  paddingBottom:'2rem',
-                  textAlign:'justify',
-                  }}
-                >
-                  A passionate and driven individual with a strong desire to make a positive impact in the world using technology.  
-                  I am currently working on FarmConnect, a platform aimed at connecting small-scale farmers to fair markets, 
-                  leveraging digital solutions to enhance agricultural sustainability. 
-                </p>
-                <h1>Education</h1>
-                <h2>Jain University</h2>
-                <p>Bachelor of Technology in <br/>
-                Computer Science and Engineering<br/>(Internet of Things)</p>
-                </p>
-                <div style={{ display: "flex", gap: "1rem" }}>
-                  <button
-                  style={{
-                    backgroundColor: "transparent",
-                    color: "#333",
-                    border: "1px solid #ddd",
-                    padding: "0.5rem 1rem",
-                    borderRadius: "0.25rem",
-                    cursor: "pointer",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.backgroundColor = "#333";
-                    e.target.style.color = "white";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.backgroundColor = "transparent";
-                    e.target.style.color = "black";
-                  }}
-                  >
-                   <a href="https://github.com/Ruth960" target="_blank" rel="noopener noreferrer">Github</a>
-                  </button>
-                  <button
-                  style={{
-                    backgroundColor: "transparent",
-                    color: "#333",
-                    border: "1px solid #ddd",
-                    padding: "0.5rem 1rem",
-                    borderRadius: "0.25rem",
-                    cursor: "pointer",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.backgroundColor = "transparent";
-                    e.target.style.color = "black";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.backgroundColor = "transparent";
-                    e.target.style.color = "black";
-                  }}
-                  >
-                  <a href="https://linkedin.com/in/ruth-wanjiru-mwaniki-485945205/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                  </button>
-                  <button
-                  style={{
-                    backgroundColor: "transparent",
-                    color: "#333",
-                    border: "1px solid #ddd",
-                    padding: "0.5rem 1rem",
-                    borderRadius: "0.25rem",
-                    cursor: "pointer",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.backgroundColor = "#333";
-                    e.target.style.color = "white";
-                  }}
-                  onMouseLeave={(e) => e.target.style.backgroundColor = "transparent"}
-                  >
-                  <a href="https://medium.com/@ruthmwaniki960" target="_blank" rel="noopener noreferrer">Medium</a>
-                  </button>
-                  
-                </div>
-                </div>
-            
-                {/* Right Section */}
-          <div
-            className="flex-1 flex justify-end"
+          Hello, I'm{' '}
+          <span
             style={{
-              position: "relative",
+              backgroundImage: 'linear-gradient(to right,rgb(49, 10, 87),rgb(235, 16, 125))',
+              WebkitBackgroundClip: 'text',
+              color: 'transparent',
             }}
           >
-            {/* Curved shape */}
-            <div
-              style={{
-                position: "absolute",
-                top: '0%',
-                right: 0,
-                bottom: 0,
-                left: '40%',
-                margin:'0',
-                backgroundColor: '#333',
-                clipPath: "polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%)",
-              }}
-            ></div>
-  
-            <img
-              src="Ruthim.png"
-              alt="Portfolio hero image"
-              style={{
-                position: "absolute",
-                height: "auto",
-                width: "300px",
-                objectFit: "contain",
-                objectPosition: "top right",
-                
-              }}
-              className="object-contain"
-            />
-          </div>
+            Ruth Wanjiru Mwaniki
+          </span>
+        </h1>
+        <h2
+          style={{
+            fontSize: '1.5rem',
+            marginBottom: '2rem',
+          }}
+        >
+          I'm a{' '}
+          <span
+            ref={textRef}
+            style={{
+              backgroundImage: 'linear-gradient(to right, #4f46e5, #9333ea)',
+              WebkitBackgroundClip: 'text',
+              color: 'transparent',
+            }}
+          ></span>
+          <span
+            style={{
+              animation: 'blink 1s step-end infinite',
+            }}
+          >
+            |
+          </span>
+        </h2>
+        <p
+          style={{
+            fontSize: '1rem',
+            opacity: 0.8,
+            marginBottom: '2rem',
+            maxWidth: '48rem',
+            margin: '0 auto',
+          }}
+        >
+         A passionate and driven individual with a strong desire to make a positive impact in the world 
+         using technology. I am currently working on FarmConnect, a platform aimed at connecting small-scale 
+         farmers to fair markets, leveraging digital solutions to enhance agricultural sustainability.
+        </p>
+        <div
+          style={{
+            backgroundColor:'linear-gradient(to right,rgb(14, 83, 110),rgb(234, 51, 210))',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '1rem',
+            justifyContent: 'center',
+          }}
+        >
+          <a
+            href="#projects"
+            style={{
+              padding: '0.75rem 2rem',
+              backgroundImage: 'linear-gradient(to right, #9333ea, #ec4899)',
+              borderRadius: '9999px',
+              color: 'white',
+              fontWeight: '500',
+              textAlign: 'center',
+              textDecoration: 'none',
+              transition: 'all 0.3s',
+            }}
+            onMouseEnter={(e) => (e.target.style.opacity = '0.9')}
+            onMouseLeave={(e) => (e.target.style.opacity = '1')}
+          >
+            View My Work
+          </a>
+          <a
+            href="#contacts"
+            style={{
+              padding: '0.75rem 2rem',
+              border: '2px solid #9333ea',
+              borderRadius: '9999px',
+              color: '#9333ea',
+              fontWeight: '500',
+              textAlign: 'center',
+              textDecoration: 'none',
+              transition: 'all 0.3s',
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.backgroundColor = '#9333ea';
+              e.target.style.color = 'white';
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.backgroundColor = 'transparent';
+              e.target.style.color = '#9333ea';
+            }}
+          >
+            Contact Me
+          </a>
         </div>
       </div>
-    )
-  }
-  
-  export default Header
+      <a
+        href="#about"
+        style={{
+          position: 'absolute',
+          bottom: '2rem',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          animation: 'bounce 2s infinite',
+        }}
+        aria-label="Scroll down"
+      >
+        {/* Decorative elements */}
+        <div
+          style={{
+            position: 'absolute',
+            top: '25%',
+            left: '2.5rem',
+            width: '8rem',
+            height: '8rem',
+            borderRadius: '50%',
+            backgroundImage: 'linear-gradient(to right, #9333ea, #ec4899)',
+            opacity: 0.2,
+            filter: 'blur(3rem)',
+          }}
+        ></div>
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '25%',
+            right: '2.5rem',
+            width: '10rem',
+            height: '10rem',
+            borderRadius: '50%',
+            backgroundImage: 'linear-gradient(to right, #4f46e5, #9333ea)',
+            opacity: 0.2,
+            filter: 'blur(3rem)',
+          }}
+        ></div>
+      </a>
+    </section>
+  );
+}
+
+export default Header;
