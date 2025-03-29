@@ -15,7 +15,7 @@ export default function TailwindForm() {
     if (errors[name]) {
       setErrors({
         ...errors,
-        [name]: null,
+        [name]: null, 
       });
     }
   };

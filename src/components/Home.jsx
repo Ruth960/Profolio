@@ -6,6 +6,7 @@ import Skills from '../components/skills.jsx';
 import Contacts from '../components/contacts.jsx'
 
 
+
 export default function Home() {
     return (
       <div
@@ -27,8 +28,9 @@ export default function Home() {
                 <div id='home'><Header /></div>
                 <div id='about'> <About/></div>
                 <div id='projects'><Projects /></div> 
-                <div id='skills'><Skills/> </div> 
+                <div id='skills'><Skills/> </div>
                 <div id='contacts'><Contacts/></div> 
+                 
                            
                 
       </div>

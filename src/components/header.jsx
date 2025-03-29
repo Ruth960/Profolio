@@ -8,7 +8,7 @@ function Header() {
       'Frontend Developer',
       'IoT Developer',
       'React and Ract Native Specialist',
-      'Tech Enthusiast',
+      
     ];
     let currentPhraseIndex = 0;
     let currentCharIndex = 0;
@@ -39,11 +39,11 @@ function Header() {
 
       if (!isDeleting && currentCharIndex === currentPhrase.length) {
         isDeleting = true;
-        typingSpeed = 1500; // Pause at the end of typing
+        typingSpeed = 1500; 
       } else if (isDeleting && currentCharIndex === 0) {
         isDeleting = false;
         currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
-        typingSpeed = 500; // Pause before typing the next phrase
+        typingSpeed = 500; 
       }
 
       setTimeout(type, typingSpeed);
@@ -142,6 +142,7 @@ function Header() {
             href="#projects"
             style={{
               padding: '0.75rem 2rem',
+              margin:20,
               backgroundImage: 'linear-gradient(to right, #9333ea, #ec4899)',
               borderRadius: '9999px',
               color: 'white',
@@ -155,29 +156,7 @@ function Header() {
           >
             View My Work
           </a>
-          <a
-            href="#contacts"
-            style={{
-              padding: '0.75rem 2rem',
-              border: '2px solid #9333ea',
-              borderRadius: '9999px',
-              color: '#9333ea',
-              fontWeight: '500',
-              textAlign: 'center',
-              textDecoration: 'none',
-              transition: 'all 0.3s',
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.backgroundColor = '#9333ea';
-              e.target.style.color = 'white';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.backgroundColor = 'transparent';
-              e.target.style.color = '#9333ea';
-            }}
-          >
-            Contact Me
-          </a>
+          
         </div>
       </div>
       <a
@@ -191,7 +170,6 @@ function Header() {
         }}
         aria-label="Scroll down"
       >
-        {/* Decorative elements */}
         <div
           style={{
             position: 'absolute',
@@ -205,19 +183,7 @@ function Header() {
             filter: 'blur(3rem)',
           }}
         ></div>
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '25%',
-            right: '2.5rem',
-            width: '10rem',
-            height: '10rem',
-            borderRadius: '50%',
-            backgroundImage: 'linear-gradient(to right, #4f46e5, #9333ea)',
-            opacity: 0.2,
-            filter: 'blur(3rem)',
-          }}
-        ></div>
+        
       </a>
     </section>
   );

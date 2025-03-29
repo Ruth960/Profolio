@@ -13,22 +13,26 @@ export default function Project() {
       padding: '150px',
     },
     card: {
-      backgroundColor: '#ffffff',
-      border: '1px solid #ccc',
+      backgroundColor: 'transparent',
+      border: '2px solid',
       borderRadius: '12px',
       padding: '16px',
-      width: '30%',
-      boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+      justifyContent: 'space-between',
+      alignItems:'center',
+      width:'30%',
+      marginBottom: '5px',
+      boxShadow: '20px rgba(41, 18, 18, 0.1)',
       transition: 'box-shadow 0.3s',
     },
     cardTitle: {
       fontSize: '1.5rem',
       fontWeight: 'bold',
       marginBottom: '8px',
-      color: '#111827',
+      color: '#fff',
+      textAlign:'center'
     },
     cardDescription: {
-      color: '#4b5563',
+      color: '#fdd',
       marginBottom: '16px',
     },
     tagsContainer: {
@@ -45,10 +49,10 @@ export default function Project() {
       color: '#9333ea',
     },
     button: {
-      alignItems: 'center',
+      alignItems: 'right',
       backgroundColor: 'blueviolet',
       padding: '10px',
-      margin: '10px 0',
+      margin: '1',
       borderRadius: '20px',
       color: 'white',
       textDecoration: 'none',
@@ -58,7 +62,7 @@ export default function Project() {
       transition: 'all 0.3s',
     },
     buttonHover: {
-      opacity: '0.9',
+      opacity: '0.2',
       backgroundColor: 'blue',
     },
     buttonsContainer: {
