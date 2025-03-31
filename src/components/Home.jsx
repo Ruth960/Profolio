@@ -12,7 +12,8 @@ export default function Home() {
       <div
       style={{
         
-        background: 'linear-gradient( rgb(68, 16, 42),rgb(44, 15, 71),rgb(88, 8, 82))',
+      
+        backgroundImage:''
       }}
       >
         <Navbar

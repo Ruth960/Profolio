@@ -11,18 +11,23 @@ export default function Project() {
       gap: '20px',
       justifyContent: 'space-between',
       padding: '150px',
+      
+      
     },
     card: {
       backgroundColor: 'transparent',
-      border: '2px solid',
+      border: '20x solid rgb(244, 255, 255, o.19',
+      backdropFilter: blur('30px'),
       borderRadius: '12px',
       padding: '16px',
       justifyContent: 'space-between',
       alignItems:'center',
       width:'30%',
       marginBottom: '5px',
-      boxShadow: '20px rgba(41, 18, 18, 0.1)',
+      boxShadow: '2px 4px 8px rgb(247, 238, 238)',
       transition: 'box-shadow 0.3s',
+      
+      
     },
     cardTitle: {
       fontSize: '1.5rem',
@@ -74,6 +79,7 @@ export default function Project() {
   return (
     <section style={styles.section}>
       <div style={styles.container}>
+    
         <div style={styles.card}>
           <h2 style={styles.cardTitle}>IoT-Based Hydroponic System</h2>
           <p style={styles.cardDescription}>

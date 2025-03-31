@@ -10,7 +10,8 @@ export default function About() {
       backgroundColor: 'transparent',
       padding: '150px',
       marginRight: '1px',
-      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+      boxShadow: '0 4px 8px rgba(207, 100, 100, 0.2)',
+      
     }}>
       <div
         style={{
@@ -20,7 +21,7 @@ export default function About() {
           color: 'white',
           padding: '20px',
           borderRadius: '10px',
-          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+          boxShadow: '0 4px 8px rgb(248, 241, 241)',
    
         }}
       >
@@ -51,6 +52,7 @@ export default function About() {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
+          boxShadow: '0 4px 8px rgb(247, 248, 241)',
         }}
       >
         <img
@@ -70,3 +72,4 @@ export default function About() {
     
   );
 }
+

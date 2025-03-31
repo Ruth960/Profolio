@@ -36,7 +36,7 @@ function Skills() {
         },
         {
           name: 'Machine Learning',
-          level: 65,
+          level: 40,
         },
         {
           name: 'Microsoft Excel',
@@ -95,7 +95,7 @@ function Skills() {
                     borderRadius: "0.75rem",
                     padding: "1.5rem",
                     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                    transition: "transform 0.3s",
+                    transition: "transform 0.05s",
                   }}
                   onMouseEnter={(e) =>
                     (e.currentTarget.style.transform = "scale(1.05)")
