@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { FaLinkedin, FaMedium, FaGithub } from 'react-icons/fa'; // Import icons
 
 function Header() {
   const textRef = useRef(null);
@@ -7,9 +8,8 @@ function Header() {
     const phrases = [
       'Frontend Developer',
       'IoT Specialist',
-      'React and Ract Native Developer',
+      'React and React Native Developer',
       'Technical Writer',
-      
     ];
     let currentPhraseIndex = 0;
     let currentCharIndex = 0;
@@ -40,11 +40,11 @@ function Header() {
 
       if (!isDeleting && currentCharIndex === currentPhrase.length) {
         isDeleting = true;
-        typingSpeed = 1500; 
+        typingSpeed = 1500;
       } else if (isDeleting && currentCharIndex === 0) {
         isDeleting = false;
         currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
-        typingSpeed = 500; 
+        typingSpeed = 500;
       }
 
       setTimeout(type, typingSpeed);
@@ -57,7 +57,6 @@ function Header() {
     <section
       id="hero"
       style={{
-        
         position: 'relative',
         height: '100vh',
         display: 'flex',
@@ -126,13 +125,13 @@ function Header() {
             margin: '0 auto',
           }}
         >
-         A passionate and driven individual with a strong desire to make a positive impact in the world 
-         using technology. I am currently working on FarmConnect, a platform aimed at connecting small-scale 
-         farmers to fair markets, leveraging digital solutions to enhance agricultural sustainability.
+          A passionate and driven individual with a strong desire to make a positive impact in the world
+          using technology. I am currently working on FarmConnect, a platform aimed at connecting small-scale
+          farmers to fair markets, leveraging digital solutions to enhance agricultural sustainability.
         </p>
         <div
           style={{
-            backgroundColor:'linear-gradient(to right,rgb(14, 83, 110),rgb(234, 51, 210))',
+            backgroundColor: 'linear-gradient(to right,rgb(14, 83, 110),rgb(234, 51, 210))',
             display: 'flex',
             flexDirection: 'column',
             gap: '1rem',
@@ -143,7 +142,7 @@ function Header() {
             href="#projects"
             style={{
               padding: '0.75rem 2rem',
-              margin:20,
+              margin: 20,
               backgroundImage: 'linear-gradient(to right, #9333ea, #ec4899)',
               borderRadius: '9999px',
               color: 'white',
@@ -157,7 +156,6 @@ function Header() {
           >
             View My Work
           </a>
-          
         </div>
       </div>
       <a
@@ -184,8 +182,71 @@ function Header() {
             filter: 'blur(3rem)',
           }}
         ></div>
-        
       </a>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          width: '100%',
+          maxWidth: '200px',
+          margin: '1rem auto',
+        }}
+      >
+        <a
+          href="https://www.linkedin.com/in/ruth-wanjiru-mwaniki-485945205/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            padding: '0.5rem',
+            margin: '0 0.5rem',
+            borderRadius: '50%',
+            backgroundColor: '#0077B5', // LinkedIn color
+            color: 'white',
+            textDecoration: 'none',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <FaLinkedin />
+        </a>
+        <a
+          href="https://medium.com/@ruthmwaniki960"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            padding: '0.5rem',
+            margin: '0 0.5rem',
+            borderRadius: '50%',
+            backgroundColor: '#000000', // Medium color
+            color: 'white',
+            textDecoration: 'none',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <FaMedium />
+        </a>
+        <a
+          href="https://github.com/Ruth960"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            padding: '0.5rem',
+            margin: '0 0.5rem',
+            borderRadius: '50%',
+            backgroundColor: '#171515', // GitHub color
+            color: 'white',
+            textDecoration: 'none',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <FaGithub />
+        </a>
+      </div>
     </section>
   );
 }
