@@ -6,8 +6,9 @@ function Header() {
   useEffect(() => {
     const phrases = [
       'Frontend Developer',
-      'IoT Developer',
-      'React and Ract Native Specialist',
+      'IoT Specialist',
+      'React and Ract Native Developer',
+      'Technical Writer',
       
     ];
     let currentPhraseIndex = 0;
