@@ -200,15 +200,17 @@ function Header() {
             padding: '0.5rem',
             margin: '0 0.5rem',
             borderRadius: '50%',
-            backgroundColor: '#0077B5', // LinkedIn color
+            backgroundColor: 'transparent', // LinkedIn color
             color: 'white',
             textDecoration: 'none',
+            elevation: '2.5rem',
+            boxShadow: '6px 0 5px rgb(165, 155, 162)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
           }}
         >
-          <FaLinkedin />
+          <FaLinkedin size={30} />
         </a>
         <a
           href="https://medium.com/@ruthmwaniki960"
@@ -218,15 +220,17 @@ function Header() {
             padding: '0.5rem',
             margin: '0 0.5rem',
             borderRadius: '50%',
-            backgroundColor: '#000000', // Medium color
+            backgroundColor: 'transparent', // Medium color
             color: 'white',
             textDecoration: 'none',
+            elevation: '2.5rem',
+            boxShadow: '6px 0 5px rgb(165, 155, 162)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
           }}
         >
-          <FaMedium />
+          <FaMedium size={30} />
         </a>
         <a
           href="https://github.com/Ruth960"
@@ -239,12 +243,14 @@ function Header() {
             backgroundColor: '#171515', // GitHub color
             color: 'white',
             textDecoration: 'none',
+            elevation: '2.5rem',
+            boxShadow: '6px 0 5px rgb(165, 155, 162)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
           }}
         >
-          <FaGithub />
+          <FaGithub size={30} />
         </a>
       </div>
     </section>
