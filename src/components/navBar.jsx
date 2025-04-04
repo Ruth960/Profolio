@@ -6,16 +6,16 @@ export default function Navbar({ links, title }) {
     <nav style={{
         width: '100%',
         margin: '20 auto',
-        background: 'linear-gradient(rgb(76, 13, 134), rgb(68, 16, 42))',
+        background: 'trasparent',
         color: 'white',
         padding: '20px',
         display: 'flex',
-        justifyContent: 'space-between', // Space between title and links
+        justifyContent: 'space-between', 
         fontSize: '20px',
         alignItems: 'center',
-        position: 'fixed', // Make the navbar fixed
-        top: 0, // Position it at the top
-        zIndex: 1000 // Ensure it stays above other elements
+        position: 'fixed', 
+        top: 0, 
+        zIndex: 1000,
     }}>
       <div style={{ fontWeight: 'bold', fontSize: '30px'}}>{title}</div> {/* Title on the left */}
       <div style={{ display: 'flex', gap: '10px' }}> {/* Links on the right */}

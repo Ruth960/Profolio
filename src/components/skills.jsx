@@ -91,10 +91,10 @@ function Skills() {
               <div key={index}>
                 <div
                   style={{
-                    backgroundColor: "#ffffff",
+                    backgroundColor: "transparent",
                     borderRadius: "0.75rem",
                     padding: "1.5rem",
-                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                    boxShadow: "0 4px 6px rgba(251, 241, 241, 0.78)",
                     transition: "transform 0.05s",
                   }}
                   onMouseEnter={(e) =>

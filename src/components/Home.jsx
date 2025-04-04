@@ -13,7 +13,7 @@ export default function Home() {
       style={{
         
       
-        backgroundImage:''
+        backgroundImage:'Ruthim.png'
       }}
       >
         <Navbar

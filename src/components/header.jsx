@@ -79,7 +79,7 @@ function Header() {
             fontSize: '2.5rem',
             fontWeight: 'bold',
             marginBottom: '1rem',
-            animation: 'fadeIn 1s ease-in-out',
+            animation: 'fadeIn 5s ease-in-out',
           }}
         >
           Hello, I'm{' '}

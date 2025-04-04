@@ -21,7 +21,7 @@ export default function About() {
           color: 'white',
           padding: '20px',
           borderRadius: '10px',
-          boxShadow: '0 4px 8px rgb(248, 241, 241)',
+          boxShadow: '0 4px 4px rgb(248, 241, 241)',
    
         }}
       >
@@ -47,24 +47,25 @@ export default function About() {
 
       <div
         style={{
-          borderRadius: '50%',
+          
           backgroundColor: 'transparent',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          boxShadow: '0 4px 8px rgb(247, 248, 241)',
+          
         }}
       >
         <img
-          src="Ruthim.png"
+          src="myimage.jpg"
           alt="my profile"
           style={{
             width: '350px',
             height: '350px',
             borderRadius: '50%',
             objectFit: 'cover',
-            boxShadow: '0 8px 18px rgba(48, 26, 18, 0.2)',
+            boxShadow:('0, 4px,4px rgb(241, 248,245'),
             border: '10px  solid dark',
+
           }}
         />
       </div>

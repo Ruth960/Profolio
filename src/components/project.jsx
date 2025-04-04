@@ -1,4 +1,5 @@
 export default function Project() {
+  
   const styles = {
     section: {
       padding: '80px 24px',
@@ -14,6 +15,7 @@ export default function Project() {
       
       
     },
+    
     card: {
       backgroundColor: 'transparent',
       border: '20x solid rgb(244, 255, 255, o.19',
@@ -26,9 +28,10 @@ export default function Project() {
       marginBottom: '5px',
       boxShadow: '2px 4px 8px rgb(247, 238, 238)',
       transition: 'box-shadow 0.3s',
-      
+      Animation: 'fadeIn 1s ease-in-out',
       
     },
+    
     cardTitle: {
       fontSize: '1.5rem',
       fontWeight: 'bold',
@@ -74,6 +77,7 @@ export default function Project() {
       display: 'flex',
       gap: '16px',
     },
+    
   };
 
   return (
