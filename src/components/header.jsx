@@ -80,12 +80,13 @@ function Header() {
             fontWeight: 'bold',
             marginBottom: '1rem',
             animation: 'fadeIn 5s ease-in-out',
+            color: 'rgb(244, 199, 231)',
           }}
         >
           Hello, I'm{' '}
           <span
             style={{
-              backgroundImage: 'linear-gradient(to right,rgb(49, 10, 87),rgb(235, 16, 125))',
+              backgroundImage: 'linear-gradient(to right,rgb(47, 217, 243),rgb(235, 16, 125))',
               WebkitBackgroundClip: 'text',
               color: 'transparent',
             }}
@@ -204,7 +205,7 @@ function Header() {
             color: 'white',
             textDecoration: 'none',
             elevation: '2.5rem',
-            boxShadow: '6px 0 5px rgb(165, 155, 162)',
+            boxShadow: '2px 0 1px rgb(165, 155, 162)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -224,7 +225,7 @@ function Header() {
             color: 'white',
             textDecoration: 'none',
             elevation: '2.5rem',
-            boxShadow: '6px 0 5px rgb(165, 155, 162)',
+            boxShadow: '2px 0 1px rgb(165, 155, 162)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -244,7 +245,7 @@ function Header() {
             color: 'white',
             textDecoration: 'none',
             elevation: '2.5rem',
-            boxShadow: '6px 0 5px rgb(165, 155, 162)',
+            boxShadow: '2px 0 1px rgb(165, 155, 162)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',

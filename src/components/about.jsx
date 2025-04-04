@@ -10,7 +10,7 @@ export default function About() {
       backgroundColor: 'transparent',
       padding: '150px',
       marginRight: '1px',
-      boxShadow: '0 4px 8px rgba(207, 100, 100, 0.2)',
+      
       
     }}>
       <div

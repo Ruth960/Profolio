@@ -13,7 +13,9 @@ export default function Home() {
       style={{
         
       
-        backgroundImage:'Ruthim.png'
+        backgroundColor: 'rgb(21, 3, 62)',
+       
+        
       }}
       >
         <Navbar
