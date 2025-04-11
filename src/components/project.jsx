@@ -1,46 +1,53 @@
 export default function Project() {
+  // Get theme from localStorage or default to dark
+  const isDarkMode = document.documentElement.classList.contains('dark');
+
+  // Dynamic styling based on theme
+  const textColor = isDarkMode ? 'white' : 'white';
+  const descriptionColor = isDarkMode ? '#fdd' : 'rgb(224, 234, 243)';
+  const cardBg = isDarkMode ? 'transparent' : 'rgb(53, 39, 92)';
+  const cardShadow = isDarkMode 
+    ? '2px 4px 8px rgb(247, 238, 238)' 
+    : '0 4px 6px rgba(0, 0, 0, 0.1)';
   
   const styles = {
     section: {
       padding: '80px 24px',
-      backgroundColor: 'none',
-      color: 'white',
+      backgroundColor: 'transparent',
+      color: textColor,
     },
     container: {
       display: 'flex',
       flexWrap: 'wrap',
       gap: '20px',
       justifyContent: 'space-between',
-      padding: '150px',
-      
-      
+      padding: '20px',
     },
     
     card: {
-      backgroundColor: 'transparent',
-      border: '20x solid rgb(244, 255, 255, o.19',
-      backdropFilter: blur('30px'),
+      backgroundColor: cardBg,
+      border: isDarkMode ? '1px solid rgba(244, 255, 255, 0.19)' : '1px solid rgba(0, 0, 0, 0.05)',
+      backdropFilter: 'blur(30px)',
       borderRadius: '12px',
       padding: '16px',
       justifyContent: 'space-between',
       alignItems:'center',
       width:'30%',
       marginBottom: '5px',
-      boxShadow: '2px 4px 8px rgb(247, 238, 238)',
+      boxShadow: cardShadow,
       transition: 'box-shadow 0.3s',
-      Animation: 'fadeIn 1s ease-in-out',
-      
+      animation: 'fadeIn 1s ease-in-out',
     },
     
     cardTitle: {
       fontSize: '1.5rem',
       fontWeight: 'bold',
       marginBottom: '8px',
-      color: '#fff',
+      color: textColor,
       textAlign:'center'
     },
     cardDescription: {
-      color: '#fdd',
+      color: descriptionColor,
       marginBottom: '16px',
     },
     tagsContainer: {
@@ -77,7 +84,6 @@ export default function Project() {
       display: 'flex',
       gap: '16px',
     },
-    
   };
 
   return (
