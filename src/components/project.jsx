@@ -3,7 +3,7 @@ export default function Project() {
   const isDarkMode = document.documentElement.classList.contains('dark');
 
   // Dynamic styling based on theme
-  const textColor = isDarkMode ? 'white' : 'white';
+  const textColor = isDarkMode ? 'white' : 'black';
   const descriptionColor = isDarkMode ? '#fdd' : 'rgb(224, 234, 243)';
   const cardBg = isDarkMode ? 'transparent' : 'rgb(53, 39, 92)';
   const cardShadow = isDarkMode 
@@ -20,23 +20,18 @@ export default function Project() {
       display: 'flex',
       flexWrap: 'wrap',
       gap: '20px',
-      justifyContent: 'space-between',
+      justifyContent: 'center',
       padding: '20px',
     },
     
     card: {
+      flex: '1 1 calc(100% - 40px)', // Full width on small screens
+      maxWidth: '350px', // Limit width on larger screens
       backgroundColor: cardBg,
-      border: isDarkMode ? '1px solid rgba(244, 255, 255, 0.19)' : '1px solid rgba(0, 0, 0, 0.05)',
-      backdropFilter: 'blur(30px)',
-      borderRadius: '12px',
-      padding: '16px',
-      justifyContent: 'space-between',
-      alignItems:'center',
-      width:'30%',
-      marginBottom: '5px',
+      borderRadius: '10px',
+      padding: '20px',
       boxShadow: cardShadow,
-      transition: 'box-shadow 0.3s',
-      animation: 'fadeIn 1s ease-in-out',
+      transition: 'transform 0.3s',
     },
     
     cardTitle: {
@@ -64,7 +59,7 @@ export default function Project() {
       color: '#9333ea',
     },
     button: {
-      alignItems: 'right',
+      alignItems: 'center',
       backgroundColor: 'blueviolet',
       padding: '10px',
       margin: '1',
@@ -83,173 +78,120 @@ export default function Project() {
     buttonsContainer: {
       display: 'flex',
       gap: '16px',
+      flexWrap: 'wrap', // Allow buttons to wrap on small screens
+      justifyContent: 'center', // Center buttons when wrapped
     },
   };
 
+  // Add hover effect
+  const handleCardMouseEnter = (e) => {
+    e.currentTarget.style.transform = 'translateY(-10px)';
+    e.currentTarget.style.boxShadow = isDarkMode 
+      ? '4px 8px 16px rgb(247, 238, 238, 0.2)' 
+      : '0 10px 15px rgba(0, 0, 0, 0.1)';
+  };
+
+  const handleCardMouseLeave = (e) => {
+    e.currentTarget.style.transform = 'translateY(0)';
+    e.currentTarget.style.boxShadow = cardShadow;
+  };
+
+  const projects = [
+    {
+      title: "IoT-Based Hydroponic System",
+      description: "Developed an automated hydroponic farming system using IoT technologies, focusing on data pipeline setup and sensor integration.",
+      tags: ["IoT", "Python", "Hardware"],
+      codeLink: "https://github.com/Ruth960/IoT-based-Hydroponic-System",
+      demoLink: null
+    },
+    {
+      title: "Home Automation System",
+      description: "The project aims to enhance convenience and efficiency by integrating technology into our daily lives. By automating tasks creating a seamless and personalized living experience.",
+      tags: ["IoT", "Arduino", "Hardware"],
+      codeLink: "https://github.com/Ruth960/Home-Automation-",
+      demoLink: null
+    },
+    {
+      title: "Automatic Number Plate Recognition",
+      description: "Programmed a system for automatic detection and recognition of vehicle license plates using image processing techniques.",
+      tags: ["Python", "OpenCV", "Teslaflow"],
+      codeLink: "https://github.com/Ruth960",
+      demoLink: null
+    },
+    {
+      title: "Personal Portfolio",
+      description: "Developed a personal portfolio website to showcase my projects and skills using React and Tailwind CSS.",
+      tags: ["React", "Tailwind", "Web"],
+      codeLink: "https://github.com/Ruth960/Profolio",
+      demoLink: "https://profolio-gules.vercel.app/"
+    },
+    {
+      title: "Farm Connect",
+      description: "FarmConnect is a digital platform that connects small-scale farmers with buyers, ensuring fair prices and reducing middlemen. It features SMS verification, a farmer dashboard, and plans for a mobile app to enhance market access and agricultural sustainability.",
+      tags: ["React", "Web"],
+      codeLink: "https://github.com/Ruth960/farm-connect",
+      demoLink: "https://farm-connect-sigma.vercel.app/"
+    },
+    {
+      title: "Scientific Calculator",
+      description: "Developed a scientific calculator that performs various mathematical operations, including trigonometric functions, logarithms.",
+      tags: ["JavaScript", "CSS", "HTML"],
+      codeLink: "https://github.com/Ruth960",
+      demoLink: "https://scientific-calculator-delta-ten.vercel.app/"
+    },
+  ];
+
   return (
-    <section style={styles.section}>
+    <section style={styles.section} id="projects">
+      <h2 style={{
+        fontSize: '2rem',
+        fontWeight: 'bold',
+        marginBottom: '2rem',
+        textAlign: 'center',
+        backgroundImage: 'linear-gradient(to right, #4f46e5, #ec4899)',
+        WebkitBackgroundClip: 'text',
+        color: 'transparent',
+      }}>
+        My Projects
+      </h2>
+      
       <div style={styles.container}>
-    
-        <div style={styles.card}>
-          <h2 style={styles.cardTitle}>IoT-Based Hydroponic System</h2>
-          <p style={styles.cardDescription}>
-            Developed an automated hydroponic farming system using IoT
-            technologies, focusing on data pipeline setup and sensor
-            integration.
-          </p>
-          <div style={styles.tagsContainer}>
-            <span style={styles.tag}>IoT</span>
-            <span style={styles.tag}>Python</span>
-            <span style={styles.tag}>Hardware</span>
+        {projects.map((project, index) => (
+          <div 
+            key={index} 
+            style={styles.card}
+            onMouseEnter={handleCardMouseEnter}
+            onMouseLeave={handleCardMouseLeave}
+          >
+            <h2 style={styles.cardTitle}>{project.title}</h2>
+            <p style={styles.cardDescription}>{project.description}</p>
+            <div style={styles.tagsContainer}>
+              {project.tags.map((tag, tagIndex) => (
+                <span key={tagIndex} style={styles.tag}>{tag}</span>
+              ))}
+            </div>
+            <div style={styles.buttonsContainer}>
+              {project.demoLink && (
+                <a
+                  href={project.demoLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={styles.button}
+                >
+                  Live Demo
+                </a>
+              )}
+              <a
+                href={project.codeLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={styles.button}
+              >
+                View Code
+              </a>
+            </div>
           </div>
-          <div style={styles.buttonsContainer}>
-            <a
-              href="https://github.com/Ruth960/IoT-based-Hydroponic-System"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={styles.button}
-            >
-              View Code
-            </a>
-          </div>
-        </div>
-        <div style={styles.card}>
-          <h2 style={styles.cardTitle}>Home Automation System</h2>
-          <p style={styles.cardDescription}>
-            The project aims to enhance convenience and efficiency by
-            integrating technology into our daily lives. By automating tasks
-            creating a seamless and personalized living experience.
-          </p>
-          <div style={styles.tagsContainer}>
-            <span style={styles.tag}>IoT</span>
-            <span style={styles.tag}>Arduino</span>
-            <span style={styles.tag}>Hardware</span>
-          </div>
-          <div style={styles.buttonsContainer}>
-            <a
-              href="https://github.com/Ruth960/Home-Automation-"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={styles.button}
-            >
-              View Code
-            </a>
-          </div>
-        </div>
-        <div style={styles.card}>
-          <h2 style={styles.cardTitle}>Automatic Number Plate Recognition</h2>
-          <p style={styles.cardDescription}>
-            Programmed a system for automatic detection and recognition of
-            vehicle license plates using image processing techniques.
-          </p>
-          <div style={styles.tagsContainer}>
-            <span style={styles.tag}>Python</span>
-            <span style={styles.tag}>OpenCV</span>
-            <span style={styles.tag}>Teslaflow</span>
-          </div>
-          <div style={styles.buttonsContainer}>
-            <a
-              href="https://github.com/Ruth960"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={styles.button}
-            >
-              View Code
-            </a>
-          </div>
-        </div>
-        <div style={styles.card}>
-          <h2 style={styles.cardTitle}>Personal Portfolio</h2>
-          <p style={styles.cardDescription}>
-            Developed a personal portfolio website to showcase my projects and
-            skills using React and Tailwind CSS.
-          </p>
-          <div style={styles.tagsContainer}>
-            <span style={styles.tag}>React</span>
-            <span style={styles.tag}>Tailwind</span>
-            <span style={styles.tag}>Web</span>
-          </div>
-          <div style={styles.buttonsContainer}>
-            <a
-              href="https://profolio-gules.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={styles.button}
-            >
-              Live Demo
-            </a>
-            <a
-              href="https://github.com/Ruth960/Profolio"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={styles.button}
-            >
-              View Code
-            </a>
-          </div>
-        </div>
-        <div style={styles.card}>
-          <h2 style={styles.cardTitle}>Farm Connect</h2>
-          <p style={styles.cardDescription}>
-            FarmConnect is a digital platform that connects small-scale farmers
-            with buyers, ensuring fair prices and reducing middlemen. It
-            features SMS verification, a farmer dashboard, and plans for a
-            mobile app to enhance market access and agricultural sustainability.
-          </p>
-          <div style={styles.tagsContainer}>
-            <span style={styles.tag}>React</span>
-            <span style={styles.tag}>Web</span>
-           
-          </div>
-          <div style={styles.buttonsContainer}>
-            <a
-              href="https://farm-connect-sigma.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={styles.button}
-            >
-              Live Demo
-            </a>
-            <a
-              href="https://github.com/Ruth960/farm-connect"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={styles.button}
-            >
-              View Code
-            </a>
-          </div>
-        </div>
-        <div style={styles.card}>
-          <h2 style={styles.cardTitle}>Scientific Calculator</h2>
-          <p style={styles.cardDescription}>
-            Developed a scientific calculator that performs various mathematical
-            operations, including trigonometric functions, logarithms.
-          </p>
-          <div style={styles.tagsContainer}>
-            <span style={styles.tag}>JavaScript</span>
-            <span style={styles.tag}>CSS</span>
-            <span style={styles.tag}>HTML</span>
-          </div>
-          <div style={styles.buttonsContainer}>
-            <a
-              href="https://scientific-calculator-delta-ten.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={styles.button}
-            >
-              Live Demo
-            </a>
-            <a
-              href="https://github.com/Ruth960"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={styles.button}
-            >
-              View Code
-            </a>
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );

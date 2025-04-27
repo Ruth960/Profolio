@@ -51,7 +51,7 @@ export default function Navbar({ links, title }) {
           display: 'flex', 
           gap: '10px',
           alignItems: 'center',
-          '@media (max-width: 768px)': {
+          '@media (maxWidth: 768px)': {
             display: 'none',
           }
         }}
@@ -103,25 +103,7 @@ export default function Navbar({ links, title }) {
           Resume
         </RouterLink>
         
-        <RouterLink
-          to="/blog"
-          style={{
-            color: isDarkMode ? 'white' : '#334155',
-            borderRadius: '5px',
-            padding: '10px 20px',
-            textDecoration: 'none',
-            cursor: 'pointer',
-            transition: 'all 0.3s ease',
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.backgroundColor = isDarkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)';
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.backgroundColor = 'transparent';
-          }}
-        >
-          Blog
-        </RouterLink>
+        
         
         {/* Theme toggle button */}
         <button

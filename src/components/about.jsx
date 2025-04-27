@@ -35,15 +35,14 @@ export default function About() {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-ev',
+        justifyContent: 'space-evenly',
         padding: '150px 20px',
-        backgroundColor: 'transparent',
-        opacity: 0,
+
         transform: 'translateY(50px)',
         transition: 'opacity 0.8s ease, transform 0.8s ease',
         maxWidth: '1200px',
         margin: '0 auto',
-        '@media (min-width: 768px)': {
+        '@media (minWidth: 768px)': {
           flexDirection: 'row',
         },
       }}
@@ -61,7 +60,7 @@ export default function About() {
           backdropFilter: 'blur(10px)',
           boxShadow: isDarkMode ? '0 4px 12px rgba(255, 255, 255, 0.1)' : '0 4px 12px rgba(0, 0, 0, 0.1)',
           transition: 'all 0.3s ease',
-          '@media (min-width: 768px)': {
+          '@media (minWidth: 768px)': {
             marginRight: '50px',
             marginBottom: '0',
           },
