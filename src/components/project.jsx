@@ -43,6 +43,7 @@ export default function Project() {
     },
     cardDescription: {
       color: descriptionColor,
+      padding: 10,
       marginBottom: '16px',
     },
     tagsContainer: {
