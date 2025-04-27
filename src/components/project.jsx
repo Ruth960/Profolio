@@ -3,9 +3,9 @@ export default function Project() {
   const isDarkMode = document.documentElement.classList.contains('dark');
 
   // Dynamic styling based on theme
-  const textColor = isDarkMode ? 'white' : 'black';
-  const descriptionColor = isDarkMode ? '#fdd' : 'rgb(224, 234, 243)';
-  const cardBg = isDarkMode ? 'transparent' : 'rgb(53, 39, 92)';
+  const textColor = isDarkMode ? 'white' : 'linear-gradient(to right, #4f46e5, #ec4899)';
+  const descriptionColor = isDarkMode ? 'white' : 'linear-gradient(to right, #4f46e5, #ec4899)';
+  const cardBg = isDarkMode ? 'transparent' : 'linear-gradient(to right, #4f46e5, #ec4899)';
   const cardShadow = isDarkMode 
     ? '2px 4px 8px rgb(247, 238, 238)' 
     : '0 4px 6px rgba(0, 0, 0, 0.1)';
