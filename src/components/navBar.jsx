@@ -110,9 +110,9 @@ export default function Navbar({ links, title }) {
       {isMenuOpen && (
         <div
           className={`
-            fixed top-[76px] left-0 right-0 bottom-0 z-50
-            flex flex-col p-8 animate-fadeIn
-            backdrop-blur-md
+           
+            flex flex-col p-2 animate-fadeIn
+            backdrop-gray-md
             ${isDarkMode ? 'bg-gray-900/95' : 'bg-slate-50/95'}
           `}
         >
@@ -124,7 +124,7 @@ export default function Navbar({ links, title }) {
               duration={500}
               onClick={() => setIsMenuOpen(false)}
               className={`
-                py-4 px-3 rounded-md text-center text-xl cursor-pointer
+                py-2 px-3 rounded-md text-center text-xl cursor-pointer
                 transition-all duration-300 hover:bg-opacity-10
                 ${isDarkMode ? 'text-white hover:bg-white' : 'text-slate-700 hover:bg-black'}
               `}
@@ -132,30 +132,7 @@ export default function Navbar({ links, title }) {
               {link.text}
             </ScrollLink>
           ))}
-          
-          <RouterLink
-            to="/resume"
-            onClick={() => setIsMenuOpen(false)}
-            className={`
-              py-4 px-3 rounded-md text-center text-xl cursor-pointer
-              transition-all duration-300 hover:bg-opacity-10
-              ${isDarkMode ? 'text-white hover:bg-white' : 'text-slate-700 hover:bg-black'}
-            `}
-          >
-            Resume
-          </RouterLink>
-          
-          <RouterLink
-            to="/blog"
-            onClick={() => setIsMenuOpen(false)}
-            className={`
-              py-4 px-3 rounded-md text-center text-xl cursor-pointer
-              transition-all duration-300 hover:bg-opacity-10
-              ${isDarkMode ? 'text-white hover:bg-white' : 'text-slate-700 hover:bg-black'}
-            `}
-          >
-            Blog
-          </RouterLink>
+       
         </div>
       )}
     </nav>
