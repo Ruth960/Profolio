@@ -10,8 +10,7 @@ export default function About() {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
+          entry.target.classList.add('opacity-100', 'translate-y-0');
         }
       },
       { threshold: 0.1 }
@@ -31,68 +30,38 @@ export default function About() {
   return (
     <div 
       ref={aboutRef}
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-evenly',
-        padding: '150px 20px',
-
-        transform: 'translateY(50px)',
-        transition: 'opacity 0.8s ease, transform 0.8s ease',
-        maxWidth: '1200px',
-        margin: '0 auto',
-        '@media (minWidth: 768px)': {
-          flexDirection: 'row',
-        },
-      }}
-      className="md:flex-row"
+      className={`
+        flex flex-col md:flex-row items-center justify-evenly
+        px-4 py-32 max-w-6xl mx-auto
+        opacity-0 translate-y-12 transition-all duration-800
+      `}
     >
       <div
-        style={{
-          flex: 1,
-          marginRight: '5',
-          marginBottom: '50px',
-          backgroundColor: isDarkMode ? 'rgba(17, 24, 39, 0.5)' : 'rgba(255, 255, 255, 0.8)',
-          color: isDarkMode ? 'white' : '#334155',
-          padding: '30px',
-          borderRadius: '15px',
-          backdropFilter: 'blur(10px)',
-          boxShadow: isDarkMode ? '0 4px 12px rgba(255, 255, 255, 0.1)' : '0 4px 12px rgba(0, 0, 0, 0.1)',
-          transition: 'all 0.3s ease',
-          '@media (minWidth: 768px)': {
-            marginRight: '50px',
-            marginBottom: '0',
-          },
-        }}
-        className="md:mr-12 md:mb-0"
+        className={`
+          flex-1 mb-12 md:mb-0 md:mr-12 p-8
+          rounded-2xl backdrop-blur-md transition-all duration-300
+          ${isDarkMode 
+            ? 'bg-gray-900/50 text-white shadow-lg shadow-white/10' 
+            : 'bg-white/80 text-slate-700 shadow-lg shadow-black/10'
+          }
+        `}
       >
-        <h1 
-          style={{ 
-            color: isDarkMode ? 'white' : '#334155', 
-            textAlign: 'center', 
-            margin: '30px 0',
-            fontSize: '2.5rem',
-            backgroundImage: 'linear-gradient(to right, #4f46e5, #ec4899)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-          }}
-        >
+        <h1 className="text-4xl text-center my-8 bg-gradient-to-r from-indigo-600 to-pink-500 bg-clip-text text-transparent">
           About Me
         </h1>
-        <div style={{ textAlign: 'justify' }}>
-          <p style={{ padding: '10px 0', lineHeight: '1.6' }}>
+        <div className="text-justify">
+          <p className="py-2.5 leading-relaxed">
             I am a tech-driven problem solver passionate about emerging technologies and data-driven solutions.
             I have worked on projects that integrate AI, IoT, and automation to tackle real-world challenges. My experience includes
             developing smart systems for agriculture, home automation, and intelligent assistants.
           </p>
-          <p style={{ padding: '10px 0', lineHeight: '1.6' }}>
+          <p className="py-2.5 leading-relaxed">
             Beyond technology, I am committed to driving impact through innovation,
             particularly in areas like sustainability and accessibility. I believe in creating solutions that not only solve problems
             but also empower communities and promote inclusivity.
           </p>
          
-          <p style={{ padding: '10px 0', lineHeight: '1.6' }}>
+          <p className="py-2.5 leading-relaxed">
             I am seeking opportunities to collaborate on projects that leverage technology to drive positive
             change and create value for society. Feel free to reach out if you share similar interests or have
             exciting projects in mind!
@@ -100,46 +69,31 @@ export default function About() {
         </div>
       </div>
 
-      <div
-        style={{
-          backgroundColor: 'transparent',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          flex: '0 0 auto',
-        }}
-      >
-        <div style={{
-          position: 'relative',
-          width: '350px',
-          height: '350px',
-        }}>
+      <div className="flex justify-center items-center">
+        <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
           <img
             src="myimage.jpg"
             alt="my profile"
-            style={{
-              width: '100%',
-              height: '100%',
-              borderRadius: '50%',
-              objectFit: 'cover',
-              boxShadow: isDarkMode ? '0 0 25px rgba(255, 255, 255, 0.2)' : '0 0 25px rgba(0, 0, 0, 0.2)',
-              border: isDarkMode ? '8px solid rgba(255, 255, 255, 0.1)' : '8px solid rgba(0, 0, 0, 0.05)',
-              transition: 'all 0.3s ease',
-              zIndex: 1,
-            }}
+            className={`
+              w-full h-full rounded-full object-cover transition-all duration-300
+              ${isDarkMode 
+                ? 'shadow-lg shadow-white/20 border-8 border-white/10' 
+                : 'shadow-lg shadow-black/20 border-8 border-black/5'
+              }
+            `}
+            style={{ zIndex: 1 }}
           />
           {/* Decorative ring */}
-          <div style={{
-            position: 'absolute',
-            top: '-15px',
-            left: '-15px',
-            right: '-15px',
-            bottom: '-15px',
-            borderRadius: '50%',
-            border: `2px solid ${isDarkMode ? '#9333ea' : '#4f46e5'}`,
-            animation: 'spin 15s linear infinite',
-            zIndex: 0,
-          }}></div>
+          <div 
+            className={`
+              absolute -inset-4 rounded-full
+              border-2 ${isDarkMode ? 'border-purple-600' : 'border-indigo-600'}
+            `}
+            style={{ 
+              animation: 'spin 15s linear infinite',
+              zIndex: 0 
+            }}
+          ></div>
         </div>
       </div>
     </div>

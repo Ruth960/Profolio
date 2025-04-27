@@ -15,68 +15,34 @@ export default function Navbar({ links, title }) {
 
   return (
     <nav
-      style={{
-        width: '100%',
-        margin: '0 auto',
-        background: isDarkMode ? 'rgba(17, 24, 39, 0.8)' : 'rgba(248, 250, 252, 0.8)',
-        backdropFilter: 'blur(10px)',
-        color: isDarkMode ? 'white' : '#334155',
-        padding: '20px',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        position: 'fixed',
-        top: 0,
-        zIndex: 1000,
-        transition: 'all 0.3s ease',
-        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-      }}
+      className={`
+        w-full fixed top-0 z-50 px-4 py-5
+        flex justify-between items-center
+        transition-all duration-300 shadow-sm
+        ${isDarkMode 
+          ? 'bg-gray-900/80 text-white' 
+          : 'bg-slate-50/80 text-slate-700'
+        } backdrop-blur-md
+      `}
     >
       {/* Logo/Title area */}
-      <div 
-        style={{ 
-          fontWeight: 'bold', 
-          fontSize: '30px',
-          background: 'linear-gradient(to right, #4f46e5, #ec4899)',
-          WebkitBackgroundClip: 'text',
-          color: 'transparent',
-        }}
-      >
+      <div className="font-bold text-2xl sm:text-3xl bg-gradient-to-r from-indigo-600 to-pink-500 bg-clip-text text-transparent">
         {title}
       </div>
       
       {/* Desktop Navigation Links */}
-      <div 
-        style={{ 
-          display: 'flex', 
-          gap: '10px',
-          alignItems: 'center',
-          '@media (maxWidth: 768px)': {
-            display: 'none',
-          }
-        }}
-        className="hidden md:flex"
-      >
+      <div className="hidden md:flex items-center gap-2">
         {links && links.map((link, index) => (
           <ScrollLink
             key={index}
             to={link.path}
             smooth={true}
             duration={500}
-            style={{
-              color: isDarkMode ? 'white' : '#334155',
-              borderRadius: '5px',
-              padding: '10px 20px',
-              textDecoration: 'none',
-              cursor: 'pointer',
-              transition: 'all 0.3s ease',
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.backgroundColor = isDarkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.backgroundColor = 'transparent';
-            }}
+            className={`
+              px-5 py-2.5 rounded-md cursor-pointer
+              transition-all duration-300 hover:bg-opacity-10
+              ${isDarkMode ? 'hover:bg-white' : 'hover:bg-black'}
+            `}
           >
             {link.text}
           </ScrollLink>
@@ -85,48 +51,24 @@ export default function Navbar({ links, title }) {
         {/* Additional navigation links */}
         <RouterLink
           to="/resume"
-          style={{
-            color: isDarkMode ? 'white' : '#334155',
-            borderRadius: '5px',
-            padding: '10px 20px',
-            textDecoration: 'none',
-            cursor: 'pointer',
-            transition: 'all 0.3s ease',
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.backgroundColor = isDarkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)';
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.backgroundColor = 'transparent';
-          }}
+          className={`
+            px-5 py-2.5 rounded-md cursor-pointer
+            transition-all duration-300 hover:bg-opacity-10
+            ${isDarkMode ? 'hover:bg-white' : 'hover:bg-black'}
+          `}
         >
           Resume
         </RouterLink>
         
-        
-        
         {/* Theme toggle button */}
         <button
           onClick={toggleTheme}
-          style={{
-            background: 'transparent',
-            border: 'none',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginLeft: '10px',
-            padding: '8px',
-            borderRadius: '50%',
-            color: isDarkMode ? 'white' : '#334155',
-            transition: 'all 0.3s ease',
-          }}
-          onMouseEnter={(e) => {
-            e.target.style.backgroundColor = isDarkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)';
-          }}
-          onMouseLeave={(e) => {
-            e.target.style.backgroundColor = 'transparent';
-          }}
+          className={`
+            bg-transparent border-none cursor-pointer
+            flex items-center justify-center ml-2 p-2 rounded-full
+            transition-all duration-300 hover:bg-opacity-10
+            ${isDarkMode ? 'hover:bg-white' : 'hover:bg-black'}
+          `}
         >
           {isDarkMode ? (
             <Sun size={24} />
@@ -137,41 +79,29 @@ export default function Navbar({ links, title }) {
       </div>
       
       {/* Mobile menu button */}
-      <div className="md:hidden flex items-center">
+      <div className="flex items-center md:hidden">
         <button
           onClick={toggleTheme}
-          style={{
-            background: 'transparent',
-            border: 'none',
-            cursor: 'pointer',
-            marginRight: '15px',
-            padding: '8px',
-            borderRadius: '50%',
-            color: isDarkMode ? 'white' : '#334155',
-          }}
+          className={`
+            bg-transparent border-none cursor-pointer p-2 rounded-full mr-4
+            ${isDarkMode ? 'text-white' : 'text-slate-700'}
+          `}
         >
           {isDarkMode ? (
-            <Sun size={24} />
+            <Sun size={22} />
           ) : (
-            <Moon size={24} />
+            <Moon size={22} />
           )}
         </button>
         
         <button
           onClick={toggleMenu}
-          style={{
-            background: 'transparent',
-            border: 'none',
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
+          className="bg-transparent border-none cursor-pointer flex items-center justify-center"
         >
           {isMenuOpen ? (
-            <X size={24} color={isDarkMode ? 'white' : '#334155'} />
+            <X size={24} className={isDarkMode ? 'text-white' : 'text-slate-700'} />
           ) : (
-            <Menu size={24} color={isDarkMode ? 'white' : '#334155'} />
+            <Menu size={24} className={isDarkMode ? 'text-white' : 'text-slate-700'} />
           )}
         </button>
       </div>
@@ -179,20 +109,12 @@ export default function Navbar({ links, title }) {
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
         <div
-          style={{
-            position: 'fixed',
-            top: '70px',
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: isDarkMode ? 'rgba(17, 24, 39, 0.95)' : 'rgba(248, 250, 252, 0.95)',
-            backdropFilter: 'blur(8px)',
-            display: 'flex',
-            flexDirection: 'column',
-            padding: '2rem',
-            zIndex: 999,
-            animation: 'fadeIn 0.3s ease',
-          }}
+          className={`
+            fixed top-[76px] left-0 right-0 bottom-0 z-50
+            flex flex-col p-8 animate-fadeIn
+            backdrop-blur-md
+            ${isDarkMode ? 'bg-gray-900/95' : 'bg-slate-50/95'}
+          `}
         >
           {links && links.map((link, index) => (
             <ScrollLink
@@ -201,22 +123,11 @@ export default function Navbar({ links, title }) {
               smooth={true}
               duration={500}
               onClick={() => setIsMenuOpen(false)}
-              style={{
-                color: isDarkMode ? 'white' : '#334155',
-                borderRadius: '5px',
-                padding: '15px',
-                textDecoration: 'none',
-                cursor: 'pointer',
-                textAlign: 'center',
-                fontSize: '1.2rem',
-                transition: 'all 0.3s ease',
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.backgroundColor = isDarkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)';
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.backgroundColor = 'transparent';
-              }}
+              className={`
+                py-4 px-3 rounded-md text-center text-xl cursor-pointer
+                transition-all duration-300 hover:bg-opacity-10
+                ${isDarkMode ? 'text-white hover:bg-white' : 'text-slate-700 hover:bg-black'}
+              `}
             >
               {link.text}
             </ScrollLink>
@@ -225,22 +136,11 @@ export default function Navbar({ links, title }) {
           <RouterLink
             to="/resume"
             onClick={() => setIsMenuOpen(false)}
-            style={{
-              color: isDarkMode ? 'white' : '#334155',
-              borderRadius: '5px',
-              padding: '15px',
-              textDecoration: 'none',
-              cursor: 'pointer',
-              textAlign: 'center',
-              fontSize: '1.2rem',
-              transition: 'all 0.3s ease',
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.backgroundColor = isDarkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.backgroundColor = 'transparent';
-            }}
+            className={`
+              py-4 px-3 rounded-md text-center text-xl cursor-pointer
+              transition-all duration-300 hover:bg-opacity-10
+              ${isDarkMode ? 'text-white hover:bg-white' : 'text-slate-700 hover:bg-black'}
+            `}
           >
             Resume
           </RouterLink>
@@ -248,22 +148,11 @@ export default function Navbar({ links, title }) {
           <RouterLink
             to="/blog"
             onClick={() => setIsMenuOpen(false)}
-            style={{
-              color: isDarkMode ? 'white' : '#334155',
-              borderRadius: '5px',
-              padding: '15px',
-              textDecoration: 'none',
-              cursor: 'pointer',
-              textAlign: 'center',
-              fontSize: '1.2rem',
-              transition: 'all 0.3s ease',
-            }}
-            onMouseEnter={(e) => {
-              e.target.style.backgroundColor = isDarkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)';
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.backgroundColor = 'transparent';
-            }}
+            className={`
+              py-4 px-3 rounded-md text-center text-xl cursor-pointer
+              transition-all duration-300 hover:bg-opacity-10
+              ${isDarkMode ? 'text-white hover:bg-white' : 'text-slate-700 hover:bg-black'}
+            `}
           >
             Blog
           </RouterLink>
