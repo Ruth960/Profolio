@@ -6,6 +6,10 @@ import Resume from './components/Resume';
 import Blogs from './components/Blogs'; 
 import ParticleBackground from './components/ParticleBackground'; 
 import ThemeContext from './contexts/ThemeContext'; 
+import emailjs from 'emailjs-com';
+
+
+emailjs.init("Ptj78U2OtMiJmV2By");
 
 function App() {
   // Theme state (dark/light mode)
@@ -20,6 +24,7 @@ function App() {
   
   // Check for saved theme preference on component mount
   useEffect(() => {
+    // Check for saved theme preference
     const savedTheme = localStorage.getItem('darkMode');
     if (savedTheme !== null) {
       setIsDarkMode(savedTheme === 'true');
