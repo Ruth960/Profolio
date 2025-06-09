@@ -137,7 +137,7 @@ export default function Project() {
       title: "Scientific Calculator",
       description: "Developed a scientific calculator that performs various mathematical operations, including trigonometric functions, logarithms.",
       tags: ["JavaScript", "CSS", "HTML"],
-      codeLink: "https://github.com/Ruth960",
+      codeLink: "https://github.com/Ruth960/Scientific-Calculator",
       demoLink: "https://scientific-calculator-delta-ten.vercel.app/"
     },
   ];
