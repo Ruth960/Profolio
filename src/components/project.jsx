@@ -1,20 +1,25 @@
+import React, { useContext } from 'react';
+import ThemeContext from '../contexts/ThemeContext';
+
 export default function Project() {
-  // Get theme from localStorage or default to dark
-  const isDarkMode = document.documentElement.classList.contains('dark');
+  const { isDarkMode } = useContext(ThemeContext);
 
   // Dynamic styling based on theme
-  const textColor = isDarkMode ? 'white' : 'linear-gradient(to right, #4f46e5, #ec4899)';
-  const descriptionColor = isDarkMode ? 'white' : 'linear-gradient(to right, #4f46e5, #ec4899)';
-  const cardBg = isDarkMode ? 'transparent' : 'linear-gradient(to right, #4f46e5, #ec4899)';
+  const textColor = isDarkMode ? 'white' : '#334155';
+  const descriptionColor = isDarkMode ? 'white' : '#334155';
+  const cardBg = isDarkMode 
+    ? 'rgba(17, 24, 39, 0.5)' // Similar to about section's bg-gray-900/50
+    : 'rgba(255, 255, 255, 0.8)'; // Similar to about section's bg-white/80
   const cardShadow = isDarkMode 
-    ? '2px 4px 8px rgb(247, 238, 238)' 
-    : '0 4px 6px rgba(0, 0, 0, 0.1)';
+    ? '0 10px 15px rgba(255, 255, 255, 0.1)' 
+    : '0 10px 15px rgba(0, 0, 0, 0.1)';
   
   const styles = {
     section: {
       padding: '80px 24px',
-      backgroundColor: 'transparent',
+      backgroundColor: isDarkMode ? 'rgb(21, 3, 62)' : '#f8fafc',
       color: textColor,
+      transition: 'background-color 0.3s, color 0.3s',
     },
     container: {
       display: 'flex',
@@ -32,6 +37,7 @@ export default function Project() {
       padding: '20px',
       boxShadow: cardShadow,
       transition: 'transform 0.3s',
+      backdropFilter: 'blur(8px)',
     },
     
     cardTitle: {
@@ -88,8 +94,8 @@ export default function Project() {
   const handleCardMouseEnter = (e) => {
     e.currentTarget.style.transform = 'translateY(-10px)';
     e.currentTarget.style.boxShadow = isDarkMode 
-      ? '4px 8px 16px rgb(247, 238, 238, 0.2)' 
-      : '0 10px 15px rgba(0, 0, 0, 0.1)';
+      ? '0 15px 25px rgba(255, 255, 255, 0.15)' 
+      : '0 15px 25px rgba(0, 0, 0, 0.15)';
   };
 
   const handleCardMouseLeave = (e) => {

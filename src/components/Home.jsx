@@ -3,8 +3,8 @@ import Navbar from './navBar.jsx';
 import About from '../components/about.jsx';
 import Header from '../components/header.jsx';
 import Projects from '../components/project.jsx';
-import Skills from '../components/skills.jsx';
 import Contacts from '../components/contacts.jsx';
+import Certificates from '../components/certificates.jsx';
 import ThemeContext from '../contexts/ThemeContext';
 
 export default function Home() {
@@ -24,16 +24,18 @@ export default function Home() {
           { text: 'Home', path: 'home' },
           { text: 'About', path: 'about' },
           { text: 'Projects', path: 'projects' },
-          { text: 'Skills', path: 'skills' },
-          { text: 'Contacts', path: 'contacts'}
+          { text: 'Certificates', path: 'certificates' },
+          { text: 'Contacts', path: 'contacts'},
+
         ]}
       />
        
       <div id='home'><Header /></div>
       <div id='about'><About/></div>
       <div id='projects'><Projects /></div> 
-      <div id='skills'><Skills/></div>
+      <div id='certificates'><Certificates/></div>
       <div id='contacts'><Contacts/></div>
+      
     </div>
   );
 }

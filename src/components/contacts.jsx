@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import emailjs from 'emailjs-com';
+import ThemeContext from '../contexts/ThemeContext';
 
 export default function ContactForm() {
+  const { isDarkMode } = useContext(ThemeContext);
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -103,25 +105,6 @@ export default function ContactForm() {
     setIsSubmitted(false);
     setSubmitError(null);
   };
-  
-  // Test function to help debug EmailJS
-  const handleTestEmail = (e) => {
-    e.preventDefault();
-    setSubmitError(null);
-    console.log("Sending test email...");
-    
-    sendTestEmail()
-      .then(response => {
-        console.log("Test email sent successfully!", response);
-        alert("Test email sent successfully!");
-      })
-      .catch(error => {
-        console.error("Test email failed:", error);
-        setSubmitError("Test email failed: " + (error.text || error.message || "Unknown error"));
-      });
-  };
-
-  const isDarkMode = document.documentElement.classList.contains('dark');
 
   return (
     <div
@@ -131,8 +114,9 @@ export default function ContactForm() {
         alignItems: 'center',
         justifyContent: 'center',
         padding: '20px',
-        backgroundColor: isDarkMode ? '#1B2230' : '#f7fafc',
-        color: isDarkMode ? 'white' : '#1a202c',
+        backgroundColor: isDarkMode ? 'rgb(21, 3, 62)' : '#f8fafc',
+        color: isDarkMode ? 'white' : '#334155',
+        transition: 'background-color 0.3s, color 0.3s',
       }}
     >
       {isSubmitted ? (
@@ -141,11 +125,12 @@ export default function ContactForm() {
             width: '100%',
             maxWidth: '600px',
             padding: '20px',
-            backgroundColor: isDarkMode ? '#1B2230' : '#edf2f7',
+            backgroundColor: isDarkMode ? 'rgba(17, 24, 39, 0.5)' : 'rgba(255, 255, 255, 0.8)',
             borderRadius: '10px',
             boxShadow: isDarkMode
-              ? '0 4px 12px rgba(255, 255, 255, 0.1)'
-              : '0 4px 12px rgba(0, 0, 0, 0.1)',
+              ? '0 10px 15px rgba(255, 255, 255, 0.1)'
+              : '0 10px 15px rgba(0, 0, 0, 0.1)',
+            backdropFilter: 'blur(8px)',
             textAlign: 'center',
           }}
         >
@@ -180,11 +165,12 @@ export default function ContactForm() {
             width: '100%',
             maxWidth: '600px',
             padding: '20px',
-            backgroundColor: isDarkMode ? '#1B2230' : '#edf2f7',
+            backgroundColor: isDarkMode ? 'rgb(245, 246, 248)' : 'rgba(255, 255, 255, 0.8)',
             borderRadius: '10px',
             boxShadow: isDarkMode
-              ? '0 4px 12px rgba(255, 255, 255, 0.1)'
-              : '0 4px 12px rgba(0, 0, 0, 0.1)',
+              ? '0 10px 15px rgba(255, 255, 255, 0.1)'
+              : '0 10px 15px rgba(0, 0, 0, 0.1)',
+            backdropFilter: 'blur(8px)',
           }}
         >
           {submitError && (
@@ -204,7 +190,7 @@ export default function ContactForm() {
                 padding: '10px',
                 borderRadius: '5px',
                 border: `1px solid ${errors.name ? '#EF4444' : isDarkMode ? '#4A5568' : '#cbd5e0'}`,
-                backgroundColor: isDarkMode ? '#1B2230' : '#fff',
+                backgroundColor: isDarkMode ? 'rgba(27, 34, 48, 0.8)' : '#fff',
                 color: isDarkMode ? '#CBD5E0' : '#2d3748',
               }}
             />
@@ -226,7 +212,7 @@ export default function ContactForm() {
                 padding: '10px',
                 borderRadius: '5px',
                 border: `1px solid ${errors.email ? '#EF4444' : isDarkMode ? '#4A5568' : '#cbd5e0'}`,
-                backgroundColor: isDarkMode ? '#1B2230' : '#fff',
+                backgroundColor: isDarkMode ? 'rgba(27, 34, 48, 0.8)' : '#fff',
                 color: isDarkMode ? '#CBD5E0' : '#2d3748',
               }}
             />
@@ -247,7 +233,7 @@ export default function ContactForm() {
                 padding: '10px',
                 borderRadius: '5px',
                 border: `1px solid ${errors.message ? '#EF4444' : isDarkMode ? '#4A5568' : '#cbd5e0'}`,
-                backgroundColor: isDarkMode ? '#1B2230' : '#fff',
+                backgroundColor: isDarkMode ? 'rgba(27, 34, 48, 0.8)' : '#fff',
                 color: isDarkMode ? '#CBD5E0' : '#2d3748',
                 resize: 'none',
                 height: '100px',
