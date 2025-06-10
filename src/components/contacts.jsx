@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
-import { sendTestEmail } from '../utils/emailTest';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -33,19 +32,16 @@ export default function ContactForm() {
   const validateForm = () => {
     const newErrors = {};
     
-    // Validate name
     if (!formData.name.trim()) {
       newErrors.name = "Name is required";
     }
-    
-    // Validate email
+
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = "Please enter a valid email address";
     }
-    
-    // Validate message
+  
     if (!formData.message.trim()) {
       newErrors.message = "Message is required";
     }
