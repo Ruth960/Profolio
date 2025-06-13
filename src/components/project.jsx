@@ -4,12 +4,11 @@ import ThemeContext from '../contexts/ThemeContext';
 export default function Project() {
   const { isDarkMode } = useContext(ThemeContext);
 
-  // Dynamic styling based on theme
+  
   const textColor = isDarkMode ? 'white' : '#334155';
   const descriptionColor = isDarkMode ? 'white' : '#334155';
   const cardBg = isDarkMode 
-    ? 'rgba(17, 24, 39, 0.5)' // Similar to about section's bg-gray-900/50
-    : 'rgba(255, 255, 255, 0.8)'; // Similar to about section's bg-white/80
+    ? 'rgba(17, 24, 39, 0.5)' : 'rgba(255, 255, 255, 0.8)'; 
   const cardShadow = isDarkMode 
     ? '0 10px 15px rgba(255, 255, 255, 0.1)' 
     : '0 10px 15px rgba(0, 0, 0, 0.1)';
@@ -30,8 +29,8 @@ export default function Project() {
     },
     
     card: {
-      flex: '1 1 calc(100% - 40px)', // Full width on small screens
-      maxWidth: '350px', // Limit width on larger screens
+      flex: '1 1 calc(100% - 40px)', // mobile screen
+      maxWidth: '350px', 
       backgroundColor: cardBg,
       borderRadius: '10px',
       padding: '20px',
@@ -85,8 +84,8 @@ export default function Project() {
     buttonsContainer: {
       display: 'flex',
       gap: '16px',
-      flexWrap: 'wrap', // Allow buttons to wrap on small screens
-      justifyContent: 'center', // Center buttons when wrapped
+      flexWrap: 'wrap', 
+      justifyContent: 'center', 
     },
   };
 
@@ -126,11 +125,11 @@ export default function Project() {
       demoLink: null
     },
     {
-      title: "Personal Portfolio",
-      description: "Developed a personal portfolio website to showcase my projects and skills using React and Tailwind CSS.",
-      tags: ["React", "Tailwind", "Web"],
-      codeLink: "https://github.com/Ruth960/Profolio",
-      demoLink: "https://profolio-gules.vercel.app/"
+      title: "Drum Kit",
+      description: "Developed an interactive drum kit web application that allows users to play different drum sounds by clicking on buttons or pressing keyboard keys. The project showcases the use of HTML, CSS, and JavaScript to create a responsive and engaging user interface.",
+      tags: ["HTML", "CSS", "Javascript"],
+      codeLink: "https://github.com/Ruth960/drum-kit",
+      demoLink: "https://drum-kit-azure-tau.vercel.app/"
     },
     {
       title: "Farm Connect",
