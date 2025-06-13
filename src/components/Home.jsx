@@ -16,6 +16,7 @@ export default function Home() {
         backgroundColor: isDarkMode ? 'rgb(21, 3, 62)' : '#f8fafc',
         color: isDarkMode ? 'white' : '#334155',
         transition: 'background-color 0.3s, color 0.3s',
+        fontFamily: "Cambria, Cochin, Georgia, Times, 'Times New Roman', serif",
       }}
     >
       <Navbar
