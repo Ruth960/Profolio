@@ -26,27 +26,50 @@ export default function Project() {
       gap: '20px',
       justifyContent: 'center',
       padding: '20px',
+      perspective: '1000px',
     },
-    
+    flipCard: {
+      flex: '1 1 calc(100% - 40px)',
+      maxWidth: '300px',
+      height: '350px',
+      backgroundColor: 'transparent',
+      perspective: '1000px',
+    },
+    flipCardInner: {
+      position: 'relative',
+      width: '100%',
+      height: '100%',
+      textAlign: 'center',
+      transition: 'transform 5s',
+      transformStyle: 'preserve-3d',
+    },
     card: {
-      flex: '1 1 calc(100% - 40px)', // mobile screen
-      maxWidth: '350px', 
+      position: 'absolute',
+      width: '100%',
+      height: '100%',
+      backfaceVisibility: 'hidden',
       backgroundColor: cardBg,
       borderRadius: '10px',
       padding: '20px',
       boxShadow: cardShadow,
-      transition: 'transform 0.3s',
       backdropFilter: 'blur(8px)',
     },
-    
+    cardFront: {},
+    cardBack: {
+      transform: 'rotateY(180deg)',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
     cardTitle: {
       fontSize: '1.5rem',
       fontWeight: 'bold',
       marginBottom: '8px',
       color: textColor,
-      textAlign:'center'
+      textAlign: 'center',
     },
-    cardDescription: {
+  cardDescription: {
       color: descriptionColor,
       padding: 10,
       marginBottom: '16px',
@@ -84,22 +107,16 @@ export default function Project() {
     buttonsContainer: {
       display: 'flex',
       gap: '16px',
-      flexWrap: 'wrap', 
-      justifyContent: 'center', 
+      flexWrap: 'wrap',
+      justifyContent: 'center',
     },
-  };
-
-  // Add hover effect
-  const handleCardMouseEnter = (e) => {
-    e.currentTarget.style.transform = 'translateY(-10px)';
-    e.currentTarget.style.boxShadow = isDarkMode 
-      ? '0 15px 25px rgba(255, 255, 255, 0.15)' 
-      : '0 15px 25px rgba(0, 0, 0, 0.15)';
-  };
-
-  const handleCardMouseLeave = (e) => {
-    e.currentTarget.style.transform = 'translateY(0)';
-    e.currentTarget.style.boxShadow = cardShadow;
+    projectImage: {
+      width: '100%',
+      height: '250px',
+      objectFit: 'cover',
+      borderRadius: '10px',
+      marginBottom: '15px',
+    },
   };
 
   const projects = [
@@ -108,42 +125,48 @@ export default function Project() {
       description: "Developed an automated hydroponic farming system using IoT technologies, focusing on data pipeline setup and sensor integration.",
       tags: ["IoT", "Python", "Hardware"],
       codeLink: "https://github.com/Ruth960/IoT-based-Hydroponic-System",
-      demoLink: null
+      demoLink: null,
+      image: 'hydroponic.png',
     },
     {
       title: "Home Automation System",
       description: "The project aims to enhance convenience and efficiency by integrating technology into our daily lives. By automating tasks creating a seamless and personalized living experience.",
       tags: ["IoT", "Arduino", "Hardware"],
       codeLink: "https://github.com/Ruth960/Home-Automation-",
-      demoLink: null
+      demoLink: null,
+      image: 'home-automation.png',
     },
     {
       title: "Automatic Number Plate Recognition",
       description: "Programmed a system for automatic detection and recognition of vehicle license plates using image processing techniques.",
       tags: ["Python", "OpenCV", "Teslaflow"],
       codeLink: "https://github.com/Ruth960",
-      demoLink: null
+      demoLink: null,
+      image: 'ANPR.png',
     },
     {
       title: "Drum Kit",
       description: "Developed an interactive drum kit web application that allows users to play different drum sounds by clicking on buttons or pressing keyboard keys. The project showcases the use of HTML, CSS, and JavaScript to create a responsive and engaging user interface.",
       tags: ["HTML", "CSS", "Javascript"],
       codeLink: "https://github.com/Ruth960/drum-kit",
-      demoLink: "https://drum-kit-azure-tau.vercel.app/"
+      demoLink: "https://drum-kit-azure-tau.vercel.app/",
+      image: 'dram-kit.png',
     },
     {
       title: "Farm Connect",
       description: "FarmConnect is a digital platform that connects small-scale farmers with buyers, ensuring fair prices and reducing middlemen. It features SMS verification, a farmer dashboard, and plans for a mobile app to enhance market access and agricultural sustainability.",
       tags: ["React", "Web"],
       codeLink: "https://github.com/Ruth960/farm-connect",
-      demoLink: "https://farm-connect-sigma.vercel.app/"
+      demoLink: "https://farm-connect-sigma.vercel.app/",
+      image: 'farm-connect.png',
     },
     {
       title: "Scientific Calculator",
       description: "Developed a scientific calculator that performs various mathematical operations, including trigonometric functions, logarithms.",
       tags: ["JavaScript", "CSS", "HTML"],
       codeLink: "https://github.com/Ruth960/Scientific-Calculator",
-      demoLink: "https://scientific-calculator-delta-ten.vercel.app/"
+      demoLink: "https://scientific-calculator-delta-ten.vercel.app/",
+      image: 'calculator.png',
     },
   ];
 
@@ -160,41 +183,55 @@ export default function Project() {
       }}>
         My Projects
       </h2>
-      
+
       <div style={styles.container}>
         {projects.map((project, index) => (
-          <div 
-            key={index} 
-            style={styles.card}
-            onMouseEnter={handleCardMouseEnter}
-            onMouseLeave={handleCardMouseLeave}
+          <div
+            key={index}
+            style={styles.flipCard}
+            onMouseEnter={(e) => {
+              e.currentTarget.querySelector('.flip-card-inner').style.transform = 'rotateY(180deg)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.querySelector('.flip-card-inner').style.transform = 'rotateY(0deg)';
+            }}
           >
-            <h2 style={styles.cardTitle}>{project.title}</h2>
-            <p style={styles.cardDescription}>{project.description}</p>
-            <div style={styles.tagsContainer}>
-              {project.tags.map((tag, tagIndex) => (
-                <span key={tagIndex} style={styles.tag}>{tag}</span>
-              ))}
-            </div>
-            <div style={styles.buttonsContainer}>
-              {project.demoLink && (
-                <a
-                  href={project.demoLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={styles.button}
-                >
-                  Live Demo
-                </a>
-              )}
-              <a
-                href={project.codeLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={styles.button}
-              >
-                View Code
-              </a>
+            <div className="flip-card-inner" style={styles.flipCardInner}>
+              <div style={{ ...styles.card, ...styles.cardFront }}>
+                <h2 style={styles.cardTitle}>{project.title}</h2>
+                <p style={styles.cardDescription}>{project.description}</p>
+                <div style={styles.tagsContainer}>
+                  {project.tags.map((tag, tagIndex) => (
+                    <span key={tagIndex} style={styles.tag}>{tag}</span>
+                  ))}
+                </div>
+              </div>
+              <div style={{ ...styles.card, ...styles.cardBack }} onClick={(e) => {
+                e.currentTarget.parentElement.style.transform = 'rotateY(0deg)';
+              }}>
+                <img src={`/projectsImages/${project.image}`} alt={project.title} style={styles.projectImage} />
+                <h2 style={styles.cardTitle}>{project.title}</h2>
+                <div style={styles.buttonsContainer}>
+                  {project.demoLink && (
+                    <a
+                      href={project.demoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={styles.button}
+                    >
+                      Live Demo
+                    </a>
+                  )}
+                  <a
+                    href={project.codeLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={styles.button}
+                  >
+                    View Code
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         ))}
