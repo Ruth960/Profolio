@@ -46,7 +46,32 @@ function App() {
         
         
         <Router>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={
+              <div style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                minHeight: '100vh',
+                backgroundColor: isDarkMode ? '#111827' : '#f8fafc',
+              }}>
+                <div style={{
+                  border: '4px solid rgba(0, 0, 0, 0.1)',
+                  borderLeftColor: isDarkMode ? '#f8fafc' : '#334155',
+                  borderRadius: '50%',
+                  width: '40px',
+                  height: '40px',
+                  animation: 'spin 1s linear infinite',
+                }}></div>
+                <style>
+                  {`
+                    @keyframes spin {
+                      0% { transform: rotate(0deg); }
+                      100% { transform: rotate(360deg); }
+                    }
+                  `}
+                </style>
+              </div>
+            }>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/contacts" element={<Contacts />} />

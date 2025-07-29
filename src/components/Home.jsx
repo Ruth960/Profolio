@@ -5,6 +5,7 @@ import Header from '../components/header.jsx';
 import Projects from '../components/project.jsx';
 import Contacts from '../components/contacts.jsx';
 import Certificates from '../components/certificates.jsx';
+import Blogs from '../components/Blogs.jsx';
 import ThemeContext from '../contexts/ThemeContext';
 
 export default function Home() {
@@ -25,18 +26,17 @@ export default function Home() {
           { text: 'Home', path: 'home' },
           { text: 'About', path: 'about' },
           { text: 'Projects', path: 'projects' },
-          { text: 'Certificates', path: 'certificates' },
-          { text: 'Contacts', path: 'contacts'},
-
+          { text: 'Blogs', path: 'blogs'},
+          { text: 'Certificates', path: 'certificates' }
         ]}
       />
        
       <div id='home'><Header /></div>
       <div id='about'><About/></div>
       <div id='projects'><Projects /></div> 
+      <div id='blogs'><Blogs /></div>
       <div id='certificates'><Certificates/></div>
       <div id='contacts'><Contacts/></div>
-      
     </div>
   );
 }

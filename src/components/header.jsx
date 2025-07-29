@@ -140,7 +140,7 @@ function Header() {
           }}
         >
           <a
-            href="#projects"
+            href="#contacts"
             style={{
               padding: '0.75rem 2rem',
               margin: 20,
@@ -155,7 +155,7 @@ function Header() {
             onMouseEnter={(e) => (e.target.style.opacity = '0.9')}
             onMouseLeave={(e) => (e.target.style.opacity = '1')}
           >
-            View My Work
+            Contact Me
           </a>
         </div>
       </div>

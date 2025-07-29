@@ -33,20 +33,20 @@ export default function Navbar({ links, title }) {
       {/* Desktop Navigation Links */}
       <div className="hidden md:flex items-center gap-2">
         {links && links.map((link, index) => (
-          <ScrollLink
-            key={index}
-            to={link.path}
-            smooth={true}
-            duration={500}
-            className={`
-              px-5 py-2.5 rounded-md cursor-pointer
-              transition-all duration-300 hover:bg-opacity-10
-              ${isDarkMode ? 'hover:bg-white' : 'hover:bg-black'}
-            `}
-          >
-            {link.text}
-          </ScrollLink>
-        ))}
+            <ScrollLink
+              key={index}
+              to={link.path}
+              smooth={true}
+              duration={500}
+              className={`
+                px-5 py-2.5 rounded-md cursor-pointer
+                transition-all duration-300 hover:bg-opacity-10
+                ${isDarkMode ? 'hover:bg-white' : 'hover:bg-black'}
+              `}
+            >
+              {link.text}
+            </ScrollLink>
+          ))}
         
         {/* Additional navigation links */}
         <RouterLink
@@ -132,7 +132,17 @@ export default function Navbar({ links, title }) {
               {link.text}
             </ScrollLink>
           ))}
-       
+          <RouterLink
+            to="/resume"
+            onClick={() => setIsMenuOpen(false)}
+            className={`
+              py-2 px-3 rounded-md text-center text-xl cursor-pointer
+              transition-all duration-300 hover:bg-opacity-10
+              ${isDarkMode ? 'text-white hover:bg-white' : 'text-slate-700 hover:bg-black'}
+            `}
+          >
+            Resume
+          </RouterLink>
         </div>
       )}
     </nav>

@@ -39,28 +39,41 @@
       "grade": "7.929"
     }
   ],
-  "skills": [
-    "Embedded C language",
-    "Smart Contract Security",
-    "Vulnerability Analysis",
-    "Web3 Security Best Practices",
-    "HTML / CSS / JavaScript",
-    "Computer Networks and Computer Protocols",
-    "Internet of Things",
-    "Micro-controller Programming in C",
-    "Power Bi",
-    "Data Analytics",
-    "Data Visualization",
-    "React",
-    "React Native",
-    "Django",
-    "Supabase",
-    "Git",
-    "GIT version control",
-    "Linux Command",
-    "GitHub",
-    "Microsoft Teams"
-  ],
+  "skills": {
+    "Programming Languages": [
+      "Embedded C language",
+      "Micro-controller Programming in C",
+      "JavaScript"
+    ],
+    "Web Technologies": [
+      "HTML",
+      "CSS"
+    ],
+    "Frameworks/Libraries": [
+      "React",
+      "React Native",
+      "Django"
+    ],
+    "Databases": [
+      "Supabase"
+    ],
+    "Tools & Platforms": [
+      "Git",
+      "GitHub",
+      "Linux Command",
+      "Microsoft Teams",
+      "Power Bi"
+    ],
+    "Concepts & Methodologies": [
+      "Smart Contract Security",
+      "Vulnerability Analysis",
+      "Web3 Security Best Practices",
+      "Computer Networks and Computer Protocols",
+      "Internet of Things",
+      "Data Analytics",
+      "Data Visualization"
+    ]
+  },
   "projects": [
     {
       "title": "Automatic Number plate recognition",

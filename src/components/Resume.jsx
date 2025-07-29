@@ -194,11 +194,16 @@ export default function Resume() {
 
             <section style={styles.section}>
                 <h2 style={styles.sectionTitle}>Skills</h2>
-                <div style={styles.skillList}>
-                    {resumeData.skills.map((skill, index) => (
-                        <span key={index} style={styles.skill}>{skill}</span>
-                    ))}
-                </div>
+                {Object.keys(resumeData.skills).map((category, catIndex) => (
+                    <div key={catIndex} style={{ marginBottom: '20px' }}>
+                        <h3 style={styles.itemTitle}>{category}</h3>
+                        <div style={styles.skillList}>
+                            {resumeData.skills[category].map((skill, skillIndex) => (
+                                <span key={skillIndex} style={styles.skill}>{skill}</span>
+                            ))}
+                        </div>
+                    </div>
+                ))}
             </section>
 
             <section style={styles.section}>

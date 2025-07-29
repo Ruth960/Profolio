@@ -1,8 +1,59 @@
 import React, { useContext } from 'react';
 import ThemeContext from '../contexts/ThemeContext';
-
+import { motion } from 'framer-motion';
 export default function Certificates() {
     const { isDarkMode } = useContext(ThemeContext);
+
+    const textColor = isDarkMode ? 'white' : '#334155';
+    const cardBg = isDarkMode 
+        ? 'rgba(17, 24, 39, 0.5)' : 'rgba(255, 255, 255, 0.8)'; 
+    const cardShadow = isDarkMode 
+        ? '0 10px 15px rgba(255, 255, 255, 0.1)' 
+        : '0 10px 15px rgba(0, 0, 0, 0.1)';
+
+    const styles = {
+        section: {
+            padding: '60px 12px',
+            backgroundColor: isDarkMode ? 'rgb(21, 3, 62)' : '#f8fafc',
+            color: textColor,
+            transition: 'background-color 0.3s, color 0.3s',
+        },
+        container: {
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: '40px',
+            justifyContent: 'center',
+            padding: '20px 10px',
+            perspective: '1000px',
+        },
+        card: {
+            flex: '1 1 300px',
+            maxWidth: '450px',
+            backgroundColor: cardBg,
+            borderRadius: '10px',
+            padding: '20px',
+            boxShadow: cardShadow,
+            backdropFilter: 'blur(8px)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '15px',
+        },
+        cardTitle: {
+            fontSize: '1.5rem',
+            fontWeight: 'bold',
+            color: textColor,
+            textAlign: 'center',
+        },
+        cardDescription: {
+            color: textColor,
+        },
+        certificateImage: {
+            width: '100%',
+            height: '200px',
+            objectFit: 'cover',
+            borderRadius: '10px',
+        },
+    };
     
     // Certificates
     const certificates = [
@@ -32,44 +83,45 @@ export default function Certificates() {
     ];
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen py-12 px-4" style={{
-            backgroundColor: isDarkMode ? 'rgb(21, 3, 62)' : '#f8fafc',
-            color: isDarkMode ? 'white' : '#334155',
-            transition: 'background-color 0.3s, color 0.3s',
-        }}>
-            <h1 className="text-4xl font-bold mb-8 text-gray-800 dark:text-white">My Certificates</h1>
+        <section style={styles.section} id="certificates">
+            <h2 style={{
+                fontSize: '2rem',
+                fontWeight: 'bold',
+                marginBottom: '2rem',
+                textAlign: 'center',
+                backgroundImage: 'linear-gradient(to right, #4f46e5, #ec4899)',
+                WebkitBackgroundClip: 'text',
+                color: 'transparent',
+            }}>
+                My Certificates
+            </h2>
             
             {certificates.length === 0 ? (
                 <p className="text-lg text-black dark:text-gray-300">No certificates to display yet.</p>
             ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-6xl">
+                <div style={styles.container}>
                     {certificates.map((certificate) => (
-                        <div 
+                        <motion.div 
                             key={certificate.id} 
-                            className="certificate-card bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-all duration-300 transform scale-105 hover:scale-100"
+                            style={styles.card}
+                            whileHover={{ scale: 1.05, y: -10 }}
+                            transition={{ type: 'spring', stiffness: 300 }}
                         >
-                            <div className="relative pb-[75%] overflow-hidden">
-                                <img 
-                                    src={certificate.image} 
-                                    alt={certificate.title} 
-                                    className="absolute inset-0 w-full h-full object-cover transition-all duration-300"
-                                />
-                            </div>
+                            <img 
+                                src={certificate.image} 
+                                alt={certificate.title} 
+                                style={styles.certificateImage}
+                            />
                             <div className="p-4">
-                                <h3 className="text-xl font-semibold text-gray-800 dark:text-white">{certificate.title}</h3>
-                                <p className="text-sm text-gray-600 dark:text-gray-300">Issued by {certificate.issuer}</p>
-                                <p className="text-sm text-gray-500 dark:text-gray-400">{certificate.date}</p>
+                                <h3 style={styles.cardTitle}>{certificate.title}</h3>
+                                <p style={styles.cardDescription}>Issued by {certificate.issuer}</p>
+                                <p style={styles.cardDescription}>{certificate.date}</p>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             )}
-
-            <style jsx>{`
-                .certificate-card:hover {
-                    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-                }
-            `}</style>
-        </div>
+        </section>
     );
 }
+   
