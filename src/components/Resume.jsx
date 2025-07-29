@@ -3,6 +3,7 @@ import ThemeContext from '../contexts/ThemeContext';
 import resumeData from '../data/resume.json';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import { FaEnvelope, FaPhone, FaLinkedin, FaGlobe } from 'react-icons/fa';
 
 export default function Resume() {
   const { isDarkMode } = useContext(ThemeContext);
@@ -45,101 +46,135 @@ export default function Resume() {
 
   const styles = {
     container: {
-      backgroundColor: isDarkMode ? '#111827' : '#f8fafc',
-      color: isDarkMode ? 'white' : '#334155',
+      backgroundColor: '#ffffff',
+      color: '#333333',
       padding: '40px 20px',
-      fontFamily: 'sans-serif',
+      fontFamily: 'Roboto, sans-serif',
     },
     header: {
       textAlign: 'center',
       marginBottom: '40px',
     },
     name: {
-      fontSize: '3rem',
+      fontSize: '3.5rem',
       fontWeight: 'bold',
-      color: isDarkMode ? '#4f46e5' : '#6a0dad',
+      color: '#6a0dad',
     },
     contact: {
       display: 'flex',
       justifyContent: 'center',
-      gap: '20px',
+      gap: '25px',
       flexWrap: 'wrap',
       marginBottom: '20px',
+      alignItems: 'center',
+    },
+    contactItem: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: '8px',
+        color: '#333333',
     },
     section: {
       marginBottom: '30px',
     },
     sectionTitle: {
-      fontSize: '1.8rem',
+      fontSize: '2rem',
       fontWeight: 'bold',
-      borderBottom: `2px solid ${isDarkMode ? '#4f46e5' : '#6a0dad'}`,
-      paddingBottom: '5px',
-      marginBottom: '20px',
+      color: '#8b5cf6',
+      borderBottom: `3px solid #8b5cf6`,
+      paddingBottom: '10px',
+      marginBottom: '25px',
     },
     listItem: {
-      marginBottom: '15px',
+      marginBottom: '20px',
+      position: 'relative',
+      paddingLeft: '30px',
+      borderLeft: `2px solid #8b5cf6`,
+    },
+    timelineDot: {
+        position: 'absolute',
+        left: '-9px',
+        top: '5px',
+        height: '16px',
+        width: '16px',
+        borderRadius: '50%',
+        backgroundColor: '#8b5cf6',
     },
     itemTitle: {
-      fontSize: '1.2rem',
+      fontSize: '1.4rem',
       fontWeight: 'bold',
     },
     itemSubtitle: {
       fontStyle: 'italic',
-      color: isDarkMode ? '#a5b4fc' : '#8b5cf6',
+      color: '#a78bfa',
+      marginBottom: '5px',
+    },
+    paragraph: {
+        textAlign: 'justify',
     },
     skillList: {
       display: 'flex',
       flexWrap: 'wrap',
-      gap: '10px',
+      gap: '12px',
     },
     skill: {
-      backgroundColor: isDarkMode ? '#374151' : '#e5e7eb',
-      padding: '5px 15px',
-      borderRadius: '15px',
+      backgroundColor: '#e0e0e0',
+      padding: '8px 18px',
+      borderRadius: '20px',
+      fontSize: '0.9rem',
+      color: '#333333',
     },
     downloadButton: {
         display: 'block',
-        width: '200px',
+        width: '220px',
         margin: '40px auto',
-        padding: '15px 20px',
-        backgroundColor: isDarkMode ? '#4f46e5' : '#6a0dad',
+        padding: '15px 25px',
+        backgroundColor: '#6a0dad',
         color: 'white',
         textAlign: 'center',
-        borderRadius: '10px',
+        borderRadius: '12px',
         cursor: 'pointer',
-        fontSize: '1.2rem',
+        fontSize: '1.3rem',
         fontWeight: 'bold',
         border: 'none',
+        transition: 'transform 0.2s',
     },
+
   };
 
   return (
     <div style={styles.container}>
-        <button onClick={handleDownload} style={styles.downloadButton}>Download PDF</button>
+        <button 
+            onClick={handleDownload} 
+            style={styles.downloadButton}
+            onMouseEnter={(e) => { e.target.style.transform = 'scale(1.05)'; }}
+            onMouseLeave={(e) => { e.target.style.transform = 'scale(1)'; }}
+        >Download PDF</button>
         <div ref={resumeRef} style={{ padding: '20px' }}>
             <header style={styles.header}>
                 <h1 style={styles.name}>{resumeData.name}</h1>
                 <div style={styles.contact}>
-                    <span>{resumeData.contact.email}</span>
-                    <span>{resumeData.contact.phone}</span>
-                    <a href={resumeData.contact.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                    <a href={resumeData.contact.website} target="_blank" rel="noopener noreferrer">Website</a>
+                    <span style={styles.contactItem}><FaEnvelope /> {resumeData.contact.email}</span>
+                    <span style={styles.contactItem}><FaPhone /> {resumeData.contact.phone}</span>
+                    <a href={resumeData.contact.linkedin} target="_blank" rel="noopener noreferrer" style={styles.contactItem}><FaLinkedin /> LinkedIn</a>
+                    <a href={resumeData.contact.website} target="_blank" rel="noopener noreferrer" style={styles.contactItem}><FaGlobe /> Website</a>
                 </div>
             </header>
 
             <section style={styles.section}>
                 <h2 style={styles.sectionTitle}>Summary</h2>
-                <p>{resumeData.summary}</p>
+                <p style={styles.paragraph}>{resumeData.summary}</p>
             </section>
 
             <section style={styles.section}>
                 <h2 style={styles.sectionTitle}>Work Experience</h2>
                 {resumeData.experience.map((job, index) => (
                     <div key={index} style={styles.listItem}>
+                        <div style={styles.timelineDot}></div>
                         <h3 style={styles.itemTitle}>{job.title}</h3>
                         <p style={styles.itemSubtitle}>{job.company} | {job.location} ({job.dates})</p>
                         <ul>
-                            {job.description.map((item, i) => <li key={i}>{item}</li>)}
+                            {job.description.map((item, i) => <li key={i} style={styles.paragraph}>{item}</li>)}
                         </ul>
                     </div>
                 ))}
@@ -149,9 +184,10 @@ export default function Resume() {
                 <h2 style={styles.sectionTitle}>Education</h2>
                 {resumeData.education.map((edu, index) => (
                     <div key={index} style={styles.listItem}>
+                        <div style={styles.timelineDot}></div>
                         <h3 style={styles.itemTitle}>{edu.degree}</h3>
                         <p style={styles.itemSubtitle}>{edu.institution} ({edu.dates})</p>
-                        {edu.grade && <p>Final Grade: {edu.grade}</p>}
+                        {edu.grade && <p style={styles.paragraph}>Final Grade: {edu.grade}</p>}
                     </div>
                 ))}
             </section>
@@ -169,8 +205,9 @@ export default function Resume() {
                 <h2 style={styles.sectionTitle}>Projects</h2>
                 {resumeData.projects.map((proj, index) => (
                     <div key={index} style={styles.listItem}>
+                        <div style={styles.timelineDot}></div>
                         <h3 style={styles.itemTitle}>{proj.title}</h3>
-                        <p>{proj.description}</p>
+                        <p style={styles.paragraph}>{proj.description}</p>
                     </div>
                 ))}
             </section>
@@ -179,10 +216,11 @@ export default function Resume() {
                 <h2 style={styles.sectionTitle}>Internships</h2>
                 {resumeData.internships.map((internship, index) => (
                     <div key={index} style={styles.listItem}>
+                        <div style={styles.timelineDot}></div>
                         <h3 style={styles.itemTitle}>{internship.title}</h3>
                         <p style={styles.itemSubtitle}>{internship.company}</p>
                         <ul>
-                            {internship.tasks.map((task, i) => <li key={i}>{task}</li>)}
+                            {internship.tasks.map((task, i) => <li key={i} style={styles.paragraph}>{task}</li>)}
                         </ul>
                     </div>
                 ))}
