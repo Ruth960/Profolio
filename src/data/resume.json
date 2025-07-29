@@ -1,4 +1,3 @@
-
 {
   "name": "Ruth Wanjiru Mwaniki",
   "contact": {
@@ -45,16 +44,12 @@
       "Micro-controller Programming in C",
       "JavaScript"
     ],
-    "Web Technologies": [
+    "Web Development": [
       "HTML",
-      "CSS"
-    ],
-    "Frameworks/Libraries": [
+      "CSS",
       "React",
       "React Native",
-      "Django"
-    ],
-    "Databases": [
+      "Django",
       "Supabase"
     ],
     "Tools & Platforms": [

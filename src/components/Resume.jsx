@@ -115,11 +115,11 @@ export default function Resume() {
     skillList: {
       display: 'flex',
       flexWrap: 'wrap',
-      gap: '12px',
+      gap: '5px',
     },
     skill: {
       backgroundColor: '#e0e0e0',
-      padding: '8px 18px',
+      padding: '5px 10px',
       borderRadius: '20px',
       fontSize: '0.9rem',
       color: '#333333',
@@ -195,7 +195,7 @@ export default function Resume() {
             <section style={styles.section}>
                 <h2 style={styles.sectionTitle}>Skills</h2>
                 {Object.keys(resumeData.skills).map((category, catIndex) => (
-                    <div key={catIndex} style={{ marginBottom: '20px' }}>
+                    <div key={catIndex} style={{ marginBottom: '10px' }}>
                         <h3 style={styles.itemTitle}>{category}</h3>
                         <div style={styles.skillList}>
                             {resumeData.skills[category].map((skill, skillIndex) => (
