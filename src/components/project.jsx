@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import ThemeContext from '../contexts/ThemeContext';
+import { motion } from 'framer-motion';
 
 export default function Project() {
   const { isDarkMode } = useContext(ThemeContext);
 
-  
   const textColor = isDarkMode ? 'white' : '#334155';
   const descriptionColor = isDarkMode ? 'white' : '#334155';
   const cardBg = isDarkMode 
@@ -15,7 +15,7 @@ export default function Project() {
   
   const styles = {
     section: {
-      padding: '80px 24px',
+      padding: '60px 12px',
       backgroundColor: isDarkMode ? 'rgb(21, 3, 62)' : '#f8fafc',
       color: textColor,
       transition: 'background-color 0.3s, color 0.3s',
@@ -23,62 +23,36 @@ export default function Project() {
     container: {
       display: 'flex',
       flexWrap: 'wrap',
-      gap: '20px',
+      gap: '40px',
       justifyContent: 'center',
       padding: '20px',
-      perspective: '1000px',
-    },
-    flipCard: {
-      flex: '1 1 calc(100% - 40px)',
-      maxWidth: '300px',
-      height: '350px',
-      backgroundColor: 'transparent',
-      perspective: '1000px',
-    },
-    flipCardInner: {
-      position: 'relative',
-      width: '100%',
-      height: '100%',
-      textAlign: 'center',
-      transition: 'transform 5s',
-      transformStyle: 'preserve-3d',
     },
     card: {
-      position: 'absolute',
-      width: '100%',
-      height: '100%',
-      backfaceVisibility: 'hidden',
+      flex: '1 1 300px',
+      maxWidth: '350px',
       backgroundColor: cardBg,
       borderRadius: '10px',
       padding: '20px',
       boxShadow: cardShadow,
       backdropFilter: 'blur(8px)',
-    },
-    cardFront: {},
-    cardBack: {
-      transform: 'rotateY(180deg)',
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
+      gap: '15px',
     },
     cardTitle: {
       fontSize: '1.5rem',
       fontWeight: 'bold',
-      marginBottom: '8px',
       color: textColor,
       textAlign: 'center',
     },
-  cardDescription: {
+    cardDescription: {
       color: descriptionColor,
-      padding: 10,
-      marginBottom: '16px',
+      flexGrow: 1,
     },
     tagsContainer: {
       display: 'flex',
       flexWrap: 'wrap',
       gap: '8px',
-      marginBottom: '16px',
     },
     tag: {
       fontSize: '0.75rem',
@@ -88,39 +62,30 @@ export default function Project() {
       color: '#9333ea',
     },
     button: {
-      alignItems: 'center',
       backgroundColor: 'blueviolet',
-      padding: '10px',
-      margin: '1',
+      padding: '10px 20px',
       borderRadius: '20px',
       color: 'white',
       textDecoration: 'none',
-      display: 'inline-block',
       textAlign: 'center',
       cursor: 'pointer',
-      transition: 'all 0.3s',
-    },
-    buttonHover: {
-      opacity: '0.2',
-      backgroundColor: 'blue',
     },
     buttonsContainer: {
       display: 'flex',
       gap: '16px',
-      flexWrap: 'wrap',
       justifyContent: 'center',
+      marginTop: '15px',
     },
     projectImage: {
       width: '100%',
-      height: '250px',
+      height: '200px',
       objectFit: 'cover',
       borderRadius: '10px',
-      marginBottom: '15px',
     },
   };
 
   const projects = [
-    {
+        {
       title: "IoT-Based Hydroponic System",
       description: "Developed an automated hydroponic farming system using IoT technologies, focusing on data pipeline setup and sensor integration.",
       tags: ["IoT", "Python", "Hardware"],
@@ -186,54 +151,43 @@ export default function Project() {
 
       <div style={styles.container}>
         {projects.map((project, index) => (
-          <div
+          <motion.div
             key={index}
-            style={styles.flipCard}
-            onMouseEnter={(e) => {
-              e.currentTarget.querySelector('.flip-card-inner').style.transform = 'rotateY(180deg)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.querySelector('.flip-card-inner').style.transform = 'rotateY(0deg)';
-            }}
+            style={styles.card}
+            whileHover={{ scale: 1.05, y: -10 }}
+            transition={{ type: 'spring', stiffness: 300 }}
           >
-            <div className="flip-card-inner" style={styles.flipCardInner}>
-              <div style={{ ...styles.card, ...styles.cardFront }}>
-                <h2 style={styles.cardTitle}>{project.title}</h2>
-                <p style={styles.cardDescription}>{project.description}</p>
-                <div style={styles.tagsContainer}>
-                  {project.tags.map((tag, tagIndex) => (
-                    <span key={tagIndex} style={styles.tag}>{tag}</span>
-                  ))}
-                </div>
-              </div>
-              <div style={{ ...styles.card, ...styles.cardBack }} onClick={(e) => {
-                e.currentTarget.parentElement.style.transform = 'rotateY(0deg)';
-              }}>
-                <img src={`/projectsImages/${project.image}`} alt={project.title} style={styles.projectImage} />
-                <h2 style={styles.cardTitle}>{project.title}</h2>
-                <div style={styles.buttonsContainer}>
-                  {project.demoLink && (
-                    <a
-                      href={project.demoLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={styles.button}
-                    >
-                      Live Demo
-                    </a>
-                  )}
-                  <a
-                    href={project.codeLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={styles.button}
-                  >
-                    View Code
-                  </a>
-                </div>
-              </div>
+            <img src={`/projectsImages/${project.image}`} alt={project.title} style={styles.projectImage} />
+            <h2 style={styles.cardTitle}>{project.title}</h2>
+            <p style={styles.cardDescription}>{project.description}</p>
+            <div style={styles.tagsContainer}>
+              {project.tags.map((tag, tagIndex) => (
+                <span key={tagIndex} style={styles.tag}>{tag}</span>
+              ))}
             </div>
-          </div>
+            <div style={styles.buttonsContainer}>
+              {project.demoLink && (
+                <motion.a
+                  href={project.demoLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={styles.button}
+                  whileHover={{ backgroundColor: '#6a0dad' }}
+                >
+                  Live Demo
+                </motion.a>
+              )}
+              <motion.a
+                href={project.codeLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={styles.button}
+                whileHover={{ backgroundColor: '#6a0dad' }}
+              >
+                View Code
+              </motion.a>
+            </div>
+          </motion.div>
         ))}
       </div>
     </section>

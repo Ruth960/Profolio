@@ -115,7 +115,7 @@ export default function ContactForm() {
             <div className="space-y-4">
               <p className="flex items-center">
                 <span className="font-semibold mr-2">Email:</span>
-                <a href="mailto:youremail@example.com" className="text-purple-400 hover:underline">youremail@example.com</a>
+                <a href="mailto:ruthmwaniki202@gmail.com" className="text-purple-400 hover:underline">ruthmwaniki202@gma.com</a>
               </p>
               <p className="flex items-center">
                 <span className="font-semibold mr-2">Phone:</span>

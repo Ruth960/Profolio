@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './components/Home';
-import Contacts from './components/contacts';
-import Resume from './components/Resume'; 
-import Blogs from './components/Blogs'; 
+
+const Home = lazy(() => import('./components/Home'));
+const Contacts = lazy(() => import('./components/contacts'));
+const Resume = lazy(() => import('./components/Resume'));
+const Blogs = lazy(() => import('./components/Blogs')); 
  
 import ThemeContext from './contexts/ThemeContext'; 
 import emailjs from 'emailjs-com';
 
 
-emailjs.init("Ptj78U2OtMiJmV2By");
+emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
 function App() {
   // Theme state (dark/light mode)
@@ -45,12 +46,14 @@ function App() {
         
         
         <Router>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/contacts" element={<Contacts />} />
-            <Route path="/resume" element={<Resume />} />
-            <Route path="/blog" element={<Blogs />} />
-          </Routes>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/contacts" element={<Contacts />} />
+              <Route path="/resume" element={<Resume />} />
+              <Route path="/blog" element={<Blogs />} />
+            </Routes>
+          </Suspense>
         </Router>
       </div>
     </ThemeContext.Provider>
