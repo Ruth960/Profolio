@@ -58,7 +58,7 @@ function Header() {
       id="hero"
       style={{
         position: 'relative',
-        height: '100vh',
+        
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
