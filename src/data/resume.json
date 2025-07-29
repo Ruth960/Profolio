@@ -1,0 +1,113 @@
+
+{
+  "name": "Ruth Wanjiru Mwaniki",
+  "contact": {
+    "email": "ruthmwaniki202@gmail.com",
+    "phone": "+254 745846180",
+    "linkedin": "https://www.linkedin.com/in/ruth-wanjiru-mwaniki-485945205",
+    "website": "https://profolio-git-main-ruth960s-projects.vercel.app/",
+    "location": "Nairobi (Kenya)"
+  },
+  "summary": "Creative and impact driven technology enthusiast with a strong interest in building practical solutions that address real-world challenges. Passionate about designing user-centered systems, leveraging data for insight, and working at the intersection of innovation and community needs. Demonstrates adaptability across various projects from automation and AI applications to digital platforms while maintaining a strong focus on usability, collaboration, and continuous learning.",
+  "experience": [
+    {
+      "title": "Software Developer",
+      "company": "Bahari Mezani Ltd",
+      "location": "Kilifi, Kenya",
+      "dates": "01/2025 - Current",
+      "description": [
+        "Lead the development and maintenance of the company's websites, implementing strategies to improve visibility and traffic.",
+        "Create pitch decks, presentations, documentation, and digital forms to support outreach and user engagement.",
+        "Collaborate with the research team to analyze data and inform website improvements and content strategy.",
+        "Conduct ongoing user testing to optimize digital experience and interface usability.",
+        "Apply digital tools and feedback systems to align web platforms with user and stakeholder needs."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Software Engineering",
+      "institution": "Technical University of Mombasa",
+      "dates": "03/2025 – 05/2025",
+      "location": "Mombasa, Kenya"
+    },
+    {
+      "degree": "BTech in Computer Science and Engineering-IoT",
+      "institution": "Jain(Deemed-to-be)University",
+      "dates": "",
+      "location": "Bangalore, India",
+      "grade": "7.929"
+    }
+  ],
+  "skills": [
+    "Embedded C language",
+    "Smart Contract Security",
+    "Vulnerability Analysis",
+    "Web3 Security Best Practices",
+    "HTML / CSS / JavaScript",
+    "Computer Networks and Computer Protocols",
+    "Internet of Things",
+    "Micro-controller Programming in C",
+    "Power Bi",
+    "Data Analytics",
+    "Data Visualization",
+    "React",
+    "React Native",
+    "Django",
+    "Supabase",
+    "Git",
+    "GIT version control",
+    "Linux Command",
+    "GitHub",
+    "Microsoft Teams"
+  ],
+  "projects": [
+    {
+      "title": "Automatic Number plate recognition",
+      "description": "Collaboratively developed an Automatic Number Plate Recognition (ANPR) system in a group of a five-member team. The project aimed to accurately detect and recognize vehicle number plates in real-time. My primary responsibilities included collecting and preprocessing data, as well as developing and training machine learning models for number plate recognition. Leveraged various image processing techniques and machine learning algorithms to ensure high accuracy and efficiency."
+    },
+    {
+      "title": "IoT-Based Hydroponic System",
+      "description": "Collaboratively developed an IoT-based hydroponic system as part of a four-member team, aimed at optimizing plant growth through automated monitoring and control of key environmental parameters. My responsibilities included hardware integration and programming the system to interface with various sensors for measuring humidity, temperature, pH levels, and nutrient concentration. The integrated system enabled real-time data collection and management via Arduino, with a mobile application for remote monitoring and adjustments. This project demonstrated my expertise in hardware integration, sensor interfacing, and embedded systems programming, team work, contributing to innovative solutions for sustainable agriculture."
+    },
+    {
+      "title": "Farm Connect",
+      "description": "Developed FarmConnect, a react native mobile app designed to directly connect small-scale farmers to markets, aiming to secure fair pricing and significantly reduce post-harvest losses. This mobile-first solution integrates SMS functionality for basic feature phones with a comprehensive smartphone dashboard, ensuring broad accessibility and addressing digital inclusion gaps. The project includes core features like farmer registration, produce listing, and intelligent buyer matching."
+    },
+    {
+      "title": "GBV Control App",
+      "description": "Developed the mobile app, a mobile application providing a critical resource for reporting gender-based violence (GBV) cases and accessing support. Features include direct emergency calling/messaging, a secure reporting section, a community forum for survivor interaction, and a resource center for learning more about GBV. This app aims to offer immediate assistance and foster a supportive environment for addressing GBV."
+    }
+  ],
+  "internships": [
+    {
+      "title": "Web3 Security Data Analytics",
+      "company": "Extern with Webacy",
+      "tasks": [
+        "Completed a 4-week externship focused on smart contract security and vulnerability analysis.",
+        "Worked on real-world projects identifying contract flaws and applying security best practices.",
+        "Developed skills in Web3 data analytics, visualization, and secure smart contract design."
+      ]
+    },
+    {
+      "title": "EmbeddedSystem",
+      "company": "Emertxe",
+      "tasks": [
+        "Led development of a Home Automation project using embedded systems.",
+        "Designed and implemented both software and hardware components, ensuring full system integration.",
+        "Gained hands-on experience in sensor interfacing, microcontroller programming, and real-world IoT applications.",
+        "Demonstrated strong ability to combine hardware and software for seamless, user-focused solutions."
+      ]
+    },
+    {
+      "title": "Python With AI",
+      "company": "Markeble Corporation Ltd",
+      "tasks": [
+        "Developed a voice assistant using Python, applying natural language processing techniques (NLP) to improve user interaction.",
+        "Worked with designers and backend developers to build a functional and intelligent voice interface.",
+        "Enhanced recognition accuracy using tools such as NLTK and TensorFlow.",
+        "Supported design decisions with a user-centered and iterative development approach."
+      ]
+    }
+  ]
+}
