@@ -4,7 +4,7 @@ import Home from './components/Home';
 import Contacts from './components/contacts';
 import Resume from './components/Resume'; 
 import Blogs from './components/Blogs'; 
-import ParticleBackground from './components/ParticleBackground'; 
+ 
 import ThemeContext from './contexts/ThemeContext'; 
 import emailjs from 'emailjs-com';
 
@@ -42,8 +42,7 @@ function App() {
           transition: 'background-color 0.3s, color 0.3s',
         }}
       >
-        {/* Particle background that follows theme */}
-        <ParticleBackground isDarkMode={isDarkMode} />
+        
         
         <Router>
           <Routes>
