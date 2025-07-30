@@ -21,7 +21,7 @@ export default function Home() {
       }}
     >
       <Navbar
-        title='Portfolio'
+        title="Ruth's Portfolio"
         links={[
           { text: 'Home', path: 'home' },
           { text: 'About', path: 'about' },
