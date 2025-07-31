@@ -162,12 +162,28 @@ export default function Resume() {
             </header>
 
             <section style={styles.section}>
-                <h2 style={styles.sectionTitle}>Summary</h2>
+                <h2 style={{
+        fontSize: '2rem',
+        fontWeight: 'bold',
+        marginBottom: '2rem',
+        textAlign: 'center',
+        backgroundImage: 'linear-gradient(to right, #4f46e5, #ec4899)',
+        WebkitBackgroundClip: 'text',
+        color: 'transparent',
+      }}>Summary</h2>
                 <p style={styles.paragraph}>{resumeData.summary}</p>
             </section>
 
             <section style={styles.section}>
-                <h2 style={styles.sectionTitle}>Work Experience</h2>
+                <h2 style={{
+        fontSize: '2rem',
+        fontWeight: 'bold',
+        marginBottom: '2rem',
+        textAlign: 'center',
+        backgroundImage: 'linear-gradient(to right, #4f46e5, #ec4899)',
+        WebkitBackgroundClip: 'text',
+        color: 'transparent',
+      }}>Work Experience</h2>
                 {resumeData.experience.map((job, index) => (
                     <div key={index} style={styles.listItem}>
                         <div style={styles.timelineDot}></div>
@@ -181,7 +197,15 @@ export default function Resume() {
             </section>
 
             <section style={styles.section}>
-                <h2 style={styles.sectionTitle}>Education</h2>
+                <h2 style={{
+        fontSize: '2rem',
+        fontWeight: 'bold',
+        marginBottom: '2rem',
+        textAlign: 'center',
+        backgroundImage: 'linear-gradient(to right, #4f46e5, #ec4899)',
+        WebkitBackgroundClip: 'text',
+        color: 'transparent',
+      }}>Education</h2>
                 {resumeData.education.map((edu, index) => (
                     <div key={index} style={styles.listItem}>
                         <div style={styles.timelineDot}></div>
@@ -193,7 +217,15 @@ export default function Resume() {
             </section>
 
             <section style={styles.section}>
-                <h2 style={styles.sectionTitle}>Skills</h2>
+                <h2 style={{
+        fontSize: '2rem',
+        fontWeight: 'bold',
+        marginBottom: '2rem',
+        textAlign: 'center',
+        backgroundImage: 'linear-gradient(to right, #4f46e5, #ec4899)',
+        WebkitBackgroundClip: 'text',
+        color: 'transparent',
+      }}>Skills</h2>
                 {Object.keys(resumeData.skills).map((category, catIndex) => (
                     <div key={catIndex} style={{ marginBottom: '10px' }}>
                         <h3 style={styles.itemTitle}>{category}</h3>
@@ -207,7 +239,15 @@ export default function Resume() {
             </section>
 
             <section style={styles.section}>
-                <h2 style={styles.sectionTitle}>Projects</h2>
+                <h2 style={{
+        fontSize: '2rem',
+        fontWeight: 'bold',
+        marginBottom: '2rem',
+        textAlign: 'center',
+        backgroundImage: 'linear-gradient(to right, #4f46e5, #ec4899)',
+        WebkitBackgroundClip: 'text',
+        color: 'transparent',
+      }}>Projects</h2>
                 {resumeData.projects.map((proj, index) => (
                     <div key={index} style={styles.listItem}>
                         <div style={styles.timelineDot}></div>
@@ -218,7 +258,15 @@ export default function Resume() {
             </section>
 
             <section style={styles.section}>
-                <h2 style={styles.sectionTitle}>Internships</h2>
+                <h2 style={{
+        fontSize: '2rem',
+        fontWeight: 'bold',
+        marginBottom: '2rem',
+        textAlign: 'center',
+        backgroundImage: 'linear-gradient(to right, #4f46e5, #ec4899)',
+        WebkitBackgroundClip: 'text',
+        color: 'transparent',
+      }}>Internships</h2>
                 {resumeData.internships.map((internship, index) => (
                     <div key={index} style={styles.listItem}>
                         <div style={styles.timelineDot}></div>

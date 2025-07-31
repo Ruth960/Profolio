@@ -42,7 +42,7 @@ export default function Certificates() {
             fontSize: '1.5rem',
             fontWeight: 'bold',
             color: textColor,
-            textAlign: 'center',
+            textAlign: 'start',
         },
         cardDescription: {
             color: textColor,

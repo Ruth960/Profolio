@@ -4,7 +4,15 @@ import blogPosts from '../data/blogPosts.json';
 export default function Blogs() {
   return (
     <div className="container mx-auto p-4">
-      <h2 className="text-3xl font-bold mb-6 text-center">My Blogs</h2>
+      <h2 style={{
+        fontSize: '2rem',
+        fontWeight: 'bold',
+        marginBottom: '2rem',
+        textAlign: 'center',
+        backgroundImage: 'linear-gradient(to right, #4f46e5, #ec4899)',
+        WebkitBackgroundClip: 'text',
+        color: 'transparent',
+      }}>My Blogs</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {blogPosts.map((post, index) => (
           <div key={index} className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
