@@ -27,18 +27,39 @@ export default function About() {
     };
   }, []);
 
+  const styles = {
+    section: {
+      padding: '60px 12px',
+      backgroundColor: isDarkMode ? 'rgb(21, 3, 62)' : '#f8fafc',
+      color: isDarkMode ? 'white' : '#334155',
+      transition: 'background-color 0.3s, color 0.3s',
+    },
+  };
+
   return (
+    <section style={styles.section} id="about">
+      <h1 style={{
+        fontSize: '2rem',
+        fontWeight: 'bold',
+        marginBottom: '2rem',
+        textAlign: 'center',
+        backgroundImage: 'linear-gradient(to right, #4f46e5, #ec4899)',
+        WebkitBackgroundClip: 'text',
+        color: 'transparent',
+      }}>
+          About Me
+        </h1>
     <div 
       ref={aboutRef}
       className={`
-        flex flex-col md:flex-row items-center justify-evenly
-        px-4 py-32 max-w-6xl mx-auto
+        flex flex-col md:flex-row items-center justify-center
+        max-w-6xl mx-auto
         opacity-0 translate-y-12 transition-all duration-800
       `}
     >
       <div
         className={`
-          flex-1 mb-12 md:mb-0 md:mr-12 p-8
+          md:w-2/3 md:mr-8 p-8
           rounded-2xl backdrop-blur-md transition-all duration-300
           ${isDarkMode 
             ? 'bg-gray-900/50 text-white shadow-lg shadow-white/10' 
@@ -46,9 +67,6 @@ export default function About() {
           }
         `}
       >
-        <h1 className="text-4xl text-center my-8 bg-gradient-to-r from-indigo-600 to-pink-500 bg-clip-text text-transparent">
-          About Me
-        </h1>
         <div className="text-justify">
           <p className="py-2.5 leading-relaxed">
             I am a tech-driven problem solver passionate about emerging technologies and data-driven solutions.
@@ -97,5 +115,6 @@ export default function About() {
         </div>
       </div>
     </div>
+    </section>
   );
 }
