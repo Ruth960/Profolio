@@ -1,12 +1,54 @@
-# React + Vite
+# project1
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal portfolio website built with React and Vite. It showcases my resume, projects, and skills.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Responsive two-column resume layout.
+- Downloadable PDF version of the resume.
+- Contact form powered by EmailJS.
+- Interactive particle background using tsparticles.
+- Smooth scrolling and animations.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+- Node.js
+- npm
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/your_username_/project1.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+
+### Running the dev server
+
+```sh
+npm run dev
+```
+
+## Available Scripts
+
+- `npm run dev`: Runs the app in the development mode.
+- `npm run build`: Builds the app for production.
+- `npm run lint`: Lints the code.
+- `npm run preview`: Previews the production build.
+
+## Technologies Used
+
+- React
+- Vite
+- Tailwind CSS
+- React Router
+- EmailJS
+- Framer Motion
+- html2canvas
+- jsPDF
+- tsparticles
